@@ -7,7 +7,6 @@ import ordinateur.Db;
 
 /**
  * Classe qui initialise le programme
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  */
 public class Main {
     

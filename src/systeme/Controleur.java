@@ -37,7 +37,6 @@ import ordinateur.*;
 
 /**
  * Classe qui controle les interactions entre l'homme et la machine
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  */
 @SuppressWarnings("serial")
 public class Controleur {
