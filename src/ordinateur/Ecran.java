@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 /**
  * Classe qui décrit le composant ecran d'un smartphone
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
+ * @author Esteban GOBERT - esteban.gobert@etu.univ-amu.fr - & Hugo DESBIOLLES - hugo.desbiolles@etu.univ-amu.fr -
  */
 
 public class Ecran extends Composant {
