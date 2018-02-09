@@ -10,18 +10,12 @@ public class Composant {
      * Reference unique d'un composant
      */
 	protected String reference;
-	
-    /**
-     * Prix du composant
-     */
-	protected double prix;
 		
     /**
      * Constructeur par defaut d'un composant
      */
 	public Composant(){
 		this.reference = null;
-		prix = 0;
 	}
 		
     /**
@@ -29,9 +23,8 @@ public class Composant {
      * @param reference Reference d'un composant
      * @param prix Prix d'un composant
      */
-	public Composant(String reference, double prix){
+	public Composant(String reference){
 		this.reference = reference;
-		this.prix = prix;
 	}
 
     /**
@@ -43,24 +36,16 @@ public class Composant {
 	}
 	
     /**
-     * Renvoie le prix d'un comopsant
-     * @return Le prix d'un composant
-     */
-	public double getPrix(){
-		return prix;
-	}
-	
-    /**
-     * Renvoie un tableau de l'ensemble des caracteristiques d'un composant (reference + prix)
-     * @return Un tableau de l'ensemble des caracteristiques d'un composant (reference + prix)
+     * Renvoie un tableau de l'ensemble des caracteristiques d'un composant (reference)
+     * @return Un tableau de l'ensemble des caracteristiques d'un composant (reference)
      */
 	public Object[] toArray(){
-		Object[] array = new Object[]{reference, prix};
+		Object[] array = new Object[]{reference};
 		return array;
 	}
 		
     /**
-     * Renvoie une representation de l'objet composant sous la forme "Composant : {reference, prix}"
+     * Renvoie une representation de l'objet composant sous la forme "Composant : {reference}"
      * @return Une chaine de caractère caractérisant le composant
      */
 	@Override
