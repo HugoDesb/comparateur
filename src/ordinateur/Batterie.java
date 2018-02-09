@@ -14,86 +14,59 @@ public class Batterie extends Composant {
 	 * Capacit� de la batterie (en mAh)
 	 */
 	private int capacite;
-	
-	/**
-	 * Frequence d'horloge du processeur du smartphone en Mhz
-	 */
-	private TypeBatterie type;
+
 	
 	
 	
     /**
-	 * Constructeur par hydratation d'un processeur'
+	 * Constructeur par hydratation d'une batterie
 	 * @param db Objet de connexion a la base de donnees
-	 * @param ref Reference unique du processeur
+	 * @param ref Reference unique de la batterie
 	 */
-	public Processeur(Db db, String ref){	
-		TreeMap<String, String> row = db.getRowFromQuery("SELECT * FROM processeur WHERE reference='" + ref + "';");
+	public Batterie(Db db, String ref){	
+		TreeMap<String, String> row = db.getRowFromQuery("SELECT * FROM batterie WHERE reference='" + ref + "';");
 		reference = row.get("reference");
-		architecture = row.get("architecture");
-		frequence = Double.parseDouble(row.get("frequence"));
-		marque = row.get("marque");
+		capacite = Integer.parseInt(row.get("capacite"));
 	}
 	
 	/**
-	 * Constructeur d'un processeur
-	 * @param reference Reference unique du processeur
-	 * @param prix Prix du processeur en euros
-	 * @param frequence Frequence du processeur du processeur
-	 * @param memoire Gamme du processeur
+	 * Constructeur d'une batterie
+	 * @param reference Reference unique de la batterie
+	 * @param capacite de la batterie
 	 */
-	public Processeur(String reference,String architecture, double frequence, String marque) {
+	public Batterie(String reference, int capacite) {
 		super(reference);
-		this.architecture = architecture;
-		this.frequence = frequence;
-		this.marque = marque;
-	}
-	
-	
-	/**
-	 * Renvoie l'architecture du processeur
-	 * @return L'architecture du processeur
-	 */
-	public String getArchitecture() {
-		return architecture;
-	}
-	
-	/**
-	 * Renvoie la frequence du processeur
-	 * @return La frequence du processeur
-	 */
-	public double getFrequence() {
-		return frequence;
+		this.capacite = capacite;
 	}
 
 	
 	/**
-	 * Renvoie la marque du processeur
-	 * @return La marque du processeur
+	 * Renvoie la marque de la batterie
+	 * @return La marque de la batterie
 	 */
-	public String getMarque() {
-		return marque;
+	public int getCapacite() {
+		return capacite;
 	}
 		
 	/**
-	 * Renvoie un tableau de l'ensemble des caracteristiques du processeur (architecture + frequence + marque)
-	 * @return Un tableau de l'ensemble des caracteristiques du processeur (architecture + frequence + marque)
+	 * Renvoie un tableau de l'ensemble des caracteristiques de la batterie (capacite)
+	 * @return Un tableau de l'ensemble des caracteristiques de la batterie (capacite)
 	 */
 	@Override
 	public Object[] toArray(){
 		Object[] array1 = super.toArray();
-		Object[] array2 = new Object[]{architecture, frequence, marque};
+		Object[] array2 = new Object[]{capacite};
 		Object[] newArray = Stream.concat(Arrays.stream(array1), Arrays.stream(array2)).toArray(Object[]::new);
 		return newArray;
 	}
 		
 	/**
-	 * Renvoie une representation de l'objet processeur sous la forme "Processeur : {architecture,frequence,marque}"
-	 * @return Une chaine de caractère caractérisant le processeur
+	 * Renvoie une representation de l'objet batterie sous la forme "Batterie : {capacite}"
+	 * @return Une chaine de caractère caractérisant la batterie
 	 */
 	@Override
 	public String toString(){
-		String string = "Processeur : {";
+		String string = "Batterie : {";
 		for(Object o : this.toArray()){
 			string += o + ", ";
 		}
