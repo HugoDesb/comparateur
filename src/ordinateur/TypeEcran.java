@@ -1,18 +1,18 @@
 package ordinateur;
 
-public enum Type {
+public enum TypeEcran {
 	LCD("lcd"), OLED("oled");
 	
 	String s;
 	
-	Type(String s){
+	TypeEcran(String s){
 		this.s = s;
 	}
 	
-	public static Type parseType(String s) {
+	public static TypeEcran parseTypeEcran(String s) {
 		switch(s.toLowerCase()) {
-		case "lcd": return Type.LCD;
-		case "oled": return Type.OLED;
+		case "lcd": return TypeEcran.LCD;
+		case "oled": return TypeEcran.OLED;
 		default : return null;
 		}
 	}

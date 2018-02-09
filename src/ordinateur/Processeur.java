@@ -44,9 +44,9 @@ public class Processeur extends Composant{
 	/**
 	 * Constructeur d'un processeur
 	 * @param reference Reference unique du processeur
-	 * @param prix Prix du processeur en euros
-	 * @param frequence Frequence du processeur du processeur
-	 * @param memoire Gamme du processeur
+	 * @param architecture du processeur
+	 * @param frequence du processeur du processeur
+	 * @param marque du processeur
 	 */
 	public Processeur(String reference,String architecture, double frequence, String marque) {
 		super(reference);

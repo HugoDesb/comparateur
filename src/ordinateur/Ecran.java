@@ -14,7 +14,7 @@ public class Ecran extends Composant {
 	/**
 	 * Type d'écran
 	 */
-	private Type type;
+	private TypeEcran type;
 	
 	/**
 	 * Taille d'écran en pouces (5.6")
@@ -34,7 +34,7 @@ public class Ecran extends Composant {
 	public Ecran(Db db, String ref){
 		TreeMap<String, String> row = db.getRowFromQuery("SELECT * FROM ecran WHERE reference='" + ref + "';");
 		reference = row.get("reference");
-		type = Type.parseType(row.get("type"));
+		type = TypeEcran.parseTypeEcran(row.get("type"));
 		taille = Double.parseDouble(row.get("taille"));
 		resolution = Resolution.parseResolution(row.get("resolution"));
 	}
@@ -46,7 +46,7 @@ public class Ecran extends Composant {
 	 * @param frequence Frequence du GPU de la carte graphique
 	 * @param memoire Memoire dedie au GPU de la carte graphique
 	 */
-	public Ecran(String reference, Type type, double taille, 
+	public Ecran(String reference, TypeEcran type, double taille, 
 			Resolution resolution) {
 		super(reference);
 		this.type = type;
@@ -58,7 +58,7 @@ public class Ecran extends Composant {
      * Renvoie la valeur du type de l'ecran
      * @return Le type
      */
-	public Type getType() {
+	public TypeEcran getType() {
 		return type;
 	}
 	
