@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 
 /**
  * Classe qui gere la connexion a la base de donnees MySQL
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  */
  
 public class Db {
