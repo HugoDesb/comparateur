@@ -5,7 +5,7 @@ import java.util.TreeMap;
 import java.util.stream.Stream;
 
 /**
- * Classe qui décrit le composant carte graphique d'un ordinateur
+ * Classe qui décrit le composant ecran d'un smartphone
  * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  */
 
