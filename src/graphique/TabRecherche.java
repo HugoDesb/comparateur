@@ -15,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  * Classe gerant l'onglet pour rechercher des offres
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  * 
  */
 @SuppressWarnings("serial")

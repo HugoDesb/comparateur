@@ -10,7 +10,6 @@ import javax.swing.JTabbedPane;
 
 /**
  * Classe gerant les composants graphiques
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  * 
  */
 @SuppressWarnings("serial")

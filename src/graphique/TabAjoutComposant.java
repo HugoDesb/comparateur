@@ -13,7 +13,6 @@ import javax.swing.JTextField;
 
 /**
  * Classe gerant l'onglet pour ajouter une reference
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  * 
  */
 @SuppressWarnings("serial")
