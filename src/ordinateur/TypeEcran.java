@@ -1,11 +1,13 @@
 package ordinateur;
 
 public enum TypeEcran {
-	LCD("lcd"), OLED("oled");
+	LCD("lcd",2), OLED("oled",1);
 	
 	String s;
+	int rank;
 	
-	TypeEcran(String s){
+	TypeEcran(String s,int rank){
+		this.rank = rank;
 		this.s = s;
 	}
 	
@@ -15,6 +17,10 @@ public enum TypeEcran {
 		case "oled": return TypeEcran.OLED;
 		default : return null;
 		}
+	}
+	
+	public int getRank() {
+		return rank;
 	}
 	
 	public String toString() {
