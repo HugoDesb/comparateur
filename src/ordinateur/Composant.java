@@ -1,7 +1,7 @@
 package ordinateur;
 
 /**
- * Classe qui décrit un composant d'un ordinateur
+ * Classe qui décrit un composant d'un smartphone
  * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
  */
 public class Composant {
@@ -10,6 +10,8 @@ public class Composant {
      * Reference unique d'un composant
      */
 	protected String reference;
+	
+	
 		
     /**
      * Constructeur par defaut d'un composant
@@ -21,7 +23,6 @@ public class Composant {
     /**
      * Constructeur d'un composant
      * @param reference Reference d'un composant
-     * @param prix Prix d'un composant
      */
 	public Composant(String reference){
 		this.reference = reference;
