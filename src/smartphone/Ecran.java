@@ -1,35 +1,38 @@
-package ordinateur;
+package smartphone;
 
 import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 
+import ordinateur.Composant;
+import ordinateur.Db;
+
 /**
- * Classe qui décrit le composant ecran d'un smartphone
+ * Classe qui dï¿½crit le composant ecran d'un smartphone
  * @author Esteban GOBERT - esteban.gobert@etu.univ-amu.fr - & Hugo DESBIOLLES - hugo.desbiolles@etu.univ-amu.fr -
  */
 
 public class Ecran extends Composant {
 	
 	/**
-	 * Type d'écran
+	 * Type d'ï¿½cran
 	 */
 	private TypeEcran type;
 	
 	/**
-	 * Taille d'écran en pouces (5.6")
+	 * Taille d'ï¿½cran en pouces (5.6")
 	 */
 	private double taille;
 	
 	/**
-	 * Résolution de l'écran
+	 * Rï¿½solution de l'ï¿½cran
 	 */
 	private Resolution resolution;
 	
 	/**
-	 * Constructeur par hydratation d'un écran
+	 * Constructeur par hydratation d'un ï¿½cran
 	 * @param db Objet de connexion a la base de donnees
-	 * @param ref Reference unique de l'écran
+	 * @param ref Reference unique de l'ï¿½cran
 	 */
 	public Ecran(Db db, String ref){
 		TreeMap<String, String> row = db.getRowFromQuery("SELECT * FROM ecran WHERE reference='" + ref + "';");
@@ -92,7 +95,7 @@ public class Ecran extends Composant {
 	
 	/**
 	 * Renvoie une representation de l'objet ecran sous la forme "ecran : {reference, type, taille, resolution}"
-	 * @return Une chaine de caractere décrivant l'écran
+	 * @return Une chaine de caractere dï¿½crivant l'ï¿½cran
 	 */
 	@Override
 	public String toString(){

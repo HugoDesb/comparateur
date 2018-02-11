@@ -1,6 +1,13 @@
-package ordinateur;
+package smartphone;
 
 import java.util.TreeMap;
+
+import ordinateur.CarteGraphique;
+import ordinateur.Cpu;
+import ordinateur.Db;
+import ordinateur.DisqueDur;
+import ordinateur.Ordinateur;
+import ordinateur.Ram;
 
 /**
  * Classe qui evalue un ordinateur

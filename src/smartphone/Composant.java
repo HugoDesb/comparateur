@@ -1,4 +1,4 @@
-package ordinateur;
+package smartphone;
 
 /**
  * Classe qui décrit un composant d'un smartphone

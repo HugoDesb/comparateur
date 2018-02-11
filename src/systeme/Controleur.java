@@ -33,7 +33,15 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import graphique.Graphique;
-import ordinateur.*;
+import ordinateur.CarteGraphique;
+import ordinateur.Composant;
+import ordinateur.Cpu;
+import ordinateur.Db;
+import ordinateur.DisqueDur;
+import ordinateur.Evaluation;
+import ordinateur.Ordinateur;
+import ordinateur.Ram;
+import smartphone.*;
 
 /**
  * Classe qui controle les interactions entre l'homme et la machine
@@ -660,7 +668,7 @@ public class Controleur {
 						graphique.getTabRecherche().getComboBoxRechercher7().getSelectedIndex());
 
 				String budget;
-				// Si l'option selectionné est "Ca m'est egal"
+				// Si l'option selectionnï¿½ est "Ca m'est egal"
 				if(graphique.getTabRecherche().getComboBoxRechercher8().getSelectedIndex() == 4){
 					budget = "";
 				}else{
@@ -864,7 +872,7 @@ public class Controleur {
 	
 	
 	/**
-	 * Classe qui permet de récuperer un changement de valeur lors d'une selection sur une cellule du tableau
+	 * Classe qui permet de rï¿½cuperer un changement de valeur lors d'une selection sur une cellule du tableau
 	 * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
 	 */
 	private class TableCellListener implements PropertyChangeListener, Runnable{

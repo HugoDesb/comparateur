@@ -1,7 +1,13 @@
-package ordinateur;
+package smartphone;
 
 import java.util.Map;
 import java.util.TreeMap;
+
+import ordinateur.CarteGraphique;
+import ordinateur.Composant;
+import ordinateur.Cpu;
+import ordinateur.DisqueDur;
+import ordinateur.Ram;
 
 /**
  * Classe qui decrit un ordinateur

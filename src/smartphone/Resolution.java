@@ -1,4 +1,4 @@
-package ordinateur;
+package smartphone;
 
 public enum Resolution {
 	SD("sd", 6), HD("hd",5), FULL_HD("fhd",4), QUAD_HD("quadhd",3),ULTRA_HD("uhd",2), FOUR_K("4k",1);

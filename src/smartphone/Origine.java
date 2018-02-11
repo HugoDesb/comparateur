@@ -1,4 +1,4 @@
-package ordinateur;
+package smartphone;
 
 public enum Origine {
 	SD("sd", 6), HD("hd",5), FULL_HD("fullhd",4), QUAD_HD("quadhd",3),ULTRA_HD("ultrahd",2), FOUR_K("4k",1);

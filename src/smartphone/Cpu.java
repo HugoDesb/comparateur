@@ -1,8 +1,11 @@
-package ordinateur;
+package smartphone;
 
 import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.stream.Stream;
+
+import ordinateur.Composant;
+import ordinateur.Db;
 
 /**
  * Classe qui décrit le composant processeur d'un ordinateur
