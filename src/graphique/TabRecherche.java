@@ -14,7 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * Classe gerant l'onglet pour rechercher des offres
+  * Classe gerant l'onglet pour rechercher des offres
  * 
  */
 @SuppressWarnings("serial")
@@ -74,11 +74,6 @@ public class TabRecherche extends JPanel{
 	 * Comboboxcontenant les reponses a la question 7
 	 */
 	private JComboBox<String> comboBoxRechercher7;
-	
-	/**
-	 * Comboboxcontenant les reponses a la question 8
-	 */
-	private JComboBox<String> comboBoxRechercher8;
 
 	/**
 	 * Bouton pour lancer la recherche
@@ -247,7 +242,7 @@ public class TabRecherche extends JPanel{
 		comboBoxRechercher5.setFont(f14plain);
 
 		// Question 6
-		JLabel labelRecherche6 = new JLabel("Combien d'applications seraient executees simultanement en moyenne ?");
+		JLabel labelRecherche6 = new JLabel("A choisir, que prefereriez-vous ?");
 		labelRecherche6.setFont(f14);
 		GridBagConstraints gbc_labelRecherche6 = new GridBagConstraints();
 		gbc_labelRecherche6.anchor = GridBagConstraints.EAST;
@@ -263,14 +258,13 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher6.gridx = 2;
 		gbc_comboBoxRechercher6.gridy = 7;
 		critereRecherche.add(comboBoxRechercher6, gbc_comboBoxRechercher6);
-		comboBoxRechercher6.addItem("Entre 1 et 5");
-		comboBoxRechercher6.addItem("Entre 5 et 10");
-		comboBoxRechercher6.addItem("Plus de 10");
+		comboBoxRechercher6.addItem("Avoir beaucoup d'autonomie (vous voyagez souvent)");
+		comboBoxRechercher6.addItem("Avoir une bonne performance");
 		comboBoxRechercher6.setFont(f14plain);
 
 		// Question 7
-		JLabel labelRecherche7 = new JLabel("A choisir, que prefereriez-vous ?");
-		labelRecherche7.setFont(f14);
+		JLabel labelRecherche7 = new JLabel("Combien seriez-vous pret a investir dans votre smartphone ?");
+		labelRecherche6.setFont(f14);
 		GridBagConstraints gbc_labelRecherche7 = new GridBagConstraints();
 		gbc_labelRecherche7.anchor = GridBagConstraints.EAST;
 		gbc_labelRecherche7.insets = new Insets(0, 0, 5, 5);
@@ -285,33 +279,10 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher7.gridx = 2;
 		gbc_comboBoxRechercher7.gridy = 8;
 		critereRecherche.add(comboBoxRechercher7, gbc_comboBoxRechercher7);
-		comboBoxRechercher7.addItem("Avoir beaucoup d'autonomie (vous voyagez souvent)");
-		comboBoxRechercher7.addItem("Avoir une bonne performance");
+		comboBoxRechercher7.addItem("Moins de 200€");
+		comboBoxRechercher7.addItem("Moins de 600€");
+		comboBoxRechercher7.addItem("Plus de 600€");
 		comboBoxRechercher7.setFont(f14plain);
-
-		// Question 8
-		JLabel labelRecherche8 = new JLabel("Combien seriez-vous pret a investir dans votre ordinateur ?");
-		labelRecherche8.setFont(f14);
-		GridBagConstraints gbc_labelRecherche8 = new GridBagConstraints();
-		gbc_labelRecherche8.anchor = GridBagConstraints.EAST;
-		gbc_labelRecherche8.insets = new Insets(0, 0, 5, 5);
-		gbc_labelRecherche8.gridx = 1;
-		gbc_labelRecherche8.gridy = 9;
-		critereRecherche.add(labelRecherche8, gbc_labelRecherche8);
-
-		comboBoxRechercher8 = new JComboBox<String>();
-		GridBagConstraints gbc_comboBoxRechercher8 = new GridBagConstraints();
-		gbc_comboBoxRechercher8.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxRechercher8.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxRechercher8.gridx = 2;
-		gbc_comboBoxRechercher8.gridy = 9;
-		critereRecherche.add(comboBoxRechercher8, gbc_comboBoxRechercher8);
-		comboBoxRechercher8.addItem("500 euros maximum");
-		comboBoxRechercher8.addItem("800 euros maximum");
-		comboBoxRechercher8.addItem("1200 euros maximum");
-		comboBoxRechercher8.addItem("1500 euros maximum");
-		comboBoxRechercher8.addItem("Ca m'est egal");
-		comboBoxRechercher8.setFont(f14plain);
 
 		// Bouton Rechercher
 		btnRechercher = new JButton("RECHERCHER");
@@ -438,14 +409,6 @@ public class TabRecherche extends JPanel{
 	 */
 	public JComboBox<String> getComboBoxRechercher7() {
 		return comboBoxRechercher7;
-	}
-
-	/**
-	 * Renvoie la combobox contenant les reponses a la question 8
-	 * @return La combobox contenant les reponses a la question 8
-	 */
-	public JComboBox<String> getComboBoxRechercher8() {
-		return comboBoxRechercher8;
 	}
 
 	/**
