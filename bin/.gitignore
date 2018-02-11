@@ -1,7 +1,7 @@
 /.DS_Store
 /_DS_Store
-/graphique/
-/images/
-/smartphone/
-/systeme/
-/ordinateur/
+/graphique/*
+/images/*
+/smartphone/*
+/systeme/*
+/ordinateur/*
