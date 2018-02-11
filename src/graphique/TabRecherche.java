@@ -226,7 +226,7 @@ public class TabRecherche extends JPanel{
 
 		// Question 5
 		JLabel labelRecherche5 = new JLabel(
-				"Seriez-vous prets a payer plus cher pour une meilleure qualité?");
+				"Seriez-vous prets a payer plus cher pour une meilleure qualité ?");
 		labelRecherche5.setFont(f14);
 		GridBagConstraints gbc_labelRecherche5 = new GridBagConstraints();
 		gbc_labelRecherche5.insets = new Insets(0, 0, 5, 5);
