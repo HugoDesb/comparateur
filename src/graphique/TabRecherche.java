@@ -281,7 +281,7 @@ public class TabRecherche extends JPanel{
 		critereRecherche.add(comboBoxRechercher7, gbc_comboBoxRechercher7);
 		comboBoxRechercher7.addItem("Moins de 200€");
 		comboBoxRechercher7.addItem("Moins de 600€");
-		comboBoxRechercher7.addItem("Plus de 600€");
+		comboBoxRechercher7.addItem("Plus de  600€");
 		comboBoxRechercher7.setFont(f14plain);
 
 		// Bouton Rechercher

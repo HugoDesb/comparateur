@@ -27,7 +27,7 @@ public class Evaluation {
 	/**
 	 * Evaluation maximale d'une carte graphique
 	 */
-	private double evalCarteGraphique = 1.0;
+	private double evalEcran = 1.0;
 		
 	/**
 	 * Evaluation maximale d'un processeur
@@ -91,7 +91,7 @@ public class Evaluation {
 	 * @param q6 Reponse a la question 6
 	 * @param q7 Reponse a la question 7
 	 */
-	public Evaluation(Db db, int q1, int q2, int q3, int q4, int q5, int q6, int q7) {
+	public Evaluation(Db db, int q1, int q2, int q3, int q4, int q5, int q6) {
 	    
 		// recupere les reponses de chaque question
 		this.db = db;
@@ -101,18 +101,17 @@ public class Evaluation {
 		this.stockage = q4;
 		this.rapidite = q5;
 		this.applications = q6;
-		this.preference = q7;
 		
 		//on recupere les eval max (pour normer)
-		this.evalCarteGraphique = evalMaxCarteGraphique();
+		this.evalEcran = evalMaxCarteGraphique();
 		this.evalCpu = evalMaxCpu();
 		this.evalDisqueDur = evalMaxDisqueDur();
 		this.evalRam = evalMaxRam();
 	}
     		
 	/**
-	 * Renvoie la meilleure evaluation parmi les cartes graphiques
-	 * @return La meilleure evaluation parmi les cartes graphiques
+	 * Renvoie la meilleure evaluation parmi les ecrans
+	 * @return La meilleure evaluation parmi les ecrans
 	 */
     public double evalMaxCarteGraphique(){
 		
@@ -120,16 +119,15 @@ public class Evaluation {
 		double evalMax = 0;
 		
 		// On parcourt la BD
-		for(TreeMap<String, String> row : db.getRowsFrom("carte_graphique")){
-			CarteGraphique carteGraphique = new CarteGraphique(db, row.get("reference"));
-			evalCourant = evaluer(carteGraphique);
+		for(TreeMap<String, String> row : db.getRowsFrom("ecran")){
+			Ecran ecran = new Ecran(db, row.get("reference"));
+			evalCourant = evaluer(ecran);
 			if(evalCourant > evalMax)
 				evalMax = evalCourant;
 		}
 		
 		return evalMax;
-		
-	}
+    }
     		
 	/**
 	 * Renvoie la meilleure evaluation parmi les processeurs
@@ -197,15 +195,15 @@ public class Evaluation {
 	/**
 	 * Renvoie l'evaluation d'un ordinateur en fonction de sa correpondance par rapport aux questions posee
 	 * L'evaluation retourne une valeur entre 0 et 1 (1 pour la plus grande correspondance)
-	 * @param ordi Ordinateur a evaluer
+	 * @param smartphone Ordinateur a evaluer
 	 * @return L'evaluation d'un ordinateur
 	 */
-	public double evaluer(Ordinateur ordi) {
+	public double evaluer(Smartphone smartphone) {
 		
-		double evalCarteGraphique = evaluer(ordi.getCarteGraphique());
-		double evalCpu = evaluer(ordi.getCpu());
-		double evalDisqueDur = evaluer(ordi.getDisqueDur());
-		double evalRam = evaluer(ordi.getRam());
+		double evalCarteGraphique = evaluer(smartphone.getEcran());
+		double evalCpu = evaluer(smartphone.getProcesseur());
+		double evalDisqueDur = evaluer(smartphone.getBatterie());
+		double evalRam = evaluer(smartphone.getAppareilPhoto());
 
 		double pointsMax = 0;
 		double pointsMax1;
@@ -319,11 +317,11 @@ public class Evaluation {
 	 * 1 correspond a un composant privilegiant la performance plutot que l'autonomie
 	 * @return l'evaluation de la carte graphique comprise entre 0 et 1
 	 */
-	public double evaluer(CarteGraphique cg) {
+	public double evaluer(Ecran ecran) {
 	
 		double res;
-		res = (cg.getFrequence() +Math.sqrt(cg.getMemoire()) );
-		return res / evalCarteGraphique;
+		res = (ecran.getFrequence() +Math.sqrt(ecran.getMemoire()) );
+		return res / evalEcran;
 	}
 
     /**
@@ -332,12 +330,12 @@ public class Evaluation {
 	 * 1 correspond a un composant privilegiant la performance plutot que l'autonomie
 	 * @return l'evaluation de la cpu comprise entre 0 et 1
 	 */
-	public double evaluer(Cpu cpu) {
+	public double evaluer(Processeur processeur) {
 
 		double res;
 		
 		double coeur = 0;
-		switch (cpu.getCoeur()) {
+		switch (processeur.getCoeur()) {
 		case "I3":
 			coeur = 2;
 			break;
@@ -351,7 +349,7 @@ public class Evaluation {
 			break;
 		}
 		
-		res = (cpu.getFrequence() + coeur );
+		res = (processeur.getFrequence() + coeur );
 		return res / evalCpu;
 	}
 	

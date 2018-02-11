@@ -20,6 +20,12 @@ public class Smartphone {
      * Prix du smartphone
      */
 	private double prix;
+	
+	
+	/**
+	 * Marque du smartphone
+	 */
+	private Marque marque;
 
     /**
      * Constructeur d'un objet smartphone
@@ -28,9 +34,9 @@ public class Smartphone {
      * @param batterie Objet batterie du smartphone
      * @param appareilPhoto Objet appareil photo du smartphone
      */
-	public Smartphone(double prix, Ecran ecran, Processeur processeur,
+	public Smartphone(String prix, Ecran ecran, Processeur processeur,
 			Batterie batterie, AppareilPhoto appareilPhoto) {
-		this.prix = prix;
+		this.prix = Double.parseDouble(prix);
 		composants = new TreeMap<String, Composant>();
 		composants.put("ecran", ecran);
 		composants.put("processeur", processeur);

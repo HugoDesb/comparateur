@@ -40,6 +40,9 @@ import ordinateur.*;
  */
 @SuppressWarnings("serial")
 public class Controleur {
+	
+	private final double TOLERANCE_PRIX = 0.1;
+	
 
     /**
      * Objet de connexion a la base de donnees
@@ -656,31 +659,30 @@ public class Controleur {
 						graphique.getTabRecherche().getComboBoxRechercher3().getSelectedIndex(),
 						graphique.getTabRecherche().getComboBoxRechercher4().getSelectedIndex(),
 						graphique.getTabRecherche().getComboBoxRechercher5().getSelectedIndex(),
-						graphique.getTabRecherche().getComboBoxRechercher6().getSelectedIndex(),
-						graphique.getTabRecherche().getComboBoxRechercher7().getSelectedIndex());
+						graphique.getTabRecherche().getComboBoxRechercher6().getSelectedIndex());
 
 				String budget;
 				// Si l'option selectionné est "Ca m'est egal"
-				if(graphique.getTabRecherche().getComboBoxRechercher8().getSelectedIndex() == 4){
-					budget = "";
+				if(graphique.getTabRecherche().getComboBoxRechercher7().getSelectedIndex() == 2){
+					budget = "prix>";
 				}else{
-					budget = "AND prix<";
-					String reponse = (String) graphique.getTabRecherche().getComboBoxRechercher8().getSelectedItem();
-					int prix = Integer.parseInt(reponse.substring(0, 4).trim());
-					int tolerancePrix = (int) (prix + 0.1 * prix);
-					budget += tolerancePrix;
+					budget = "prix<";
 				}
+				String reponse = (String) graphique.getTabRecherche().getComboBoxRechercher7().getSelectedItem();
+				int prix = Integer.parseInt(reponse.substring(9, 12).trim());
+				int tolerancePrix = (int) (prix + TOLERANCE_PRIX * prix);				
+				budget += tolerancePrix;
 
-				// Tableau qui associe une evaluation a un ordinateur
+				// Tableau qui associe une evaluation a un smartphone
 				SortedMap<Integer, Double> map = new TreeMap<Integer, Double>();
 				
-				// On evalue tous les ordinateurs et on remplit le tableau
-				for (TreeMap<String, String> row : db.getRowsFrom("ordinateur", "reserve=0 " + budget)) {
-					Ordinateur ordi = new Ordinateur(new CarteGraphique(db, row.get("carte_graphique")),
-							new Cpu(db, row.get("cpu")), new DisqueDur(db, row.get("disque_dur")),
-							new Ram(db, row.get("ram")));
+				// On evalue tous les smartphones et on remplit le tableau
+				for (TreeMap<String, String> row : db.getRowsFrom("smartphone", budget)) {
+					Smartphone smartphone = new Smartphone(row.get("prix"),new Ecran(db, row.get("ecran")),
+							new Processeur(db, row.get("processeur")), new Batterie(db, row.get("batterie")),
+							new AppareilPhoto(db, row.get("appareil_photo")));
 
-					map.put(Integer.parseInt(row.get("id")), eval.evaluer(ordi));
+					map.put(Integer.parseInt(row.get("id")), eval.evaluer(smartphone));
 				}
 
 				// On trie les ordinateurs selont leurs evaluations
