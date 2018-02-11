@@ -181,11 +181,11 @@ public class Controleur {
 		}
 		
 		graphique.getTabListeOffre().getTableOffre().getColumn("Ecran")
-				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifCarteGraphique()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("Processeur").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifCpu()));
+				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifEcran()));
+		graphique.getTabListeOffre().getTableOffre().getColumn("Processeur").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifProcesseur()));
 		graphique.getTabListeOffre().getTableOffre().getColumn("Batterie")
-				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifDisqueDur()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("Appareil Photo").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifRam()));
+				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifBatterie()));
+		graphique.getTabListeOffre().getTableOffre().getColumn("Appareil Photo").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifAppareilPhoto()));
 		graphique.getTabListeOffre().getTableOffre().getColumn("Marque").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifReserve()));
 
 		graphique.getTabListeOffre().getTableOffre().setRowHeight(20);
@@ -201,23 +201,23 @@ public class Controleur {
      */
 	public void fillComboBox() {
 		for (TreeMap<String, String> row : db.getRowsFrom("carte_graphique")) {
-			graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().addItem(row.get("reference"));
-			graphique.getTabListeOffre().getComboBoxModifCarteGraphique().addItem(row.get("reference"));
+			graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().addItem(row.get("reference"));
+			graphique.getTabListeOffre().getComboBoxModifEcran().addItem(row.get("reference"));
 		}
 
 		for (TreeMap<String, String> row : db.getRowsFrom("cpu")) {
-			graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().addItem(row.get("reference"));
-			graphique.getTabListeOffre().getComboBoxModifCpu().addItem(row.get("reference"));
+			graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().addItem(row.get("reference"));
+			graphique.getTabListeOffre().getComboBoxModifProcesseur().addItem(row.get("reference"));
 		}
 
 		for (TreeMap<String, String> row : db.getRowsFrom("disque_dur")) {
-			graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().addItem(row.get("reference"));
-			graphique.getTabListeOffre().getComboBoxModifDisqueDur().addItem(row.get("reference"));
+			graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().addItem(row.get("reference"));
+			graphique.getTabListeOffre().getComboBoxModifBatterie().addItem(row.get("reference"));
 		}
 
 		for (TreeMap<String, String> row : db.getRowsFrom("ram")) {
-			graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().addItem(row.get("reference"));
-			graphique.getTabListeOffre().getComboBoxModifRam().addItem(row.get("reference"));
+			graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().addItem(row.get("reference"));
+			graphique.getTabListeOffre().getComboBoxModifAppareilPhoto().addItem(row.get("reference"));
 		}
 
 		graphique.getTabListeOffre().getComboBoxModifReserve().addItem("Disponible");
@@ -352,41 +352,41 @@ public class Controleur {
      * Affiche le prix du composant selectionne et le total
      */
 	public void addEventListenerAjoutOffrePrix() {
-		graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().addActionListener(new ActionListener() {
+		graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				graphique.getTabAjoutOffre().getLabelPrixUnitaireCarteGraphique().setText(db
+				graphique.getTabAjoutOffre().getLabelPrixUnitaireEcran().setText(db
 						.getRowFromQuery("SELECT prix FROM carte_graphique WHERE reference='"
-								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().getSelectedItem() + "';")
+								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().getSelectedItem() + "';")
 						.get("prix") + " euros");
 				writeTotalInLabel();
 			}
 		});
 
-		graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().addActionListener(new ActionListener() {
+		graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				graphique.getTabAjoutOffre().getLabelPrixUnitaireCpu().setText(db
+				graphique.getTabAjoutOffre().getLabelPrixUnitaireProcesseur().setText(db
 						.getRowFromQuery("SELECT prix FROM cpu WHERE reference='"
-								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().getSelectedItem() + "';")
+								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().getSelectedItem() + "';")
 						.get("prix") + " euros");
 				writeTotalInLabel();
 			}
 		});
 
-		graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().addActionListener(new ActionListener() {
+		graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				graphique.getTabAjoutOffre().getLabelPrixUnitaireDisqueDur().setText(db
+				graphique.getTabAjoutOffre().getLabelPrixUnitaireBatterie().setText(db
 						.getRowFromQuery("SELECT prix FROM disque_dur WHERE reference='"
-								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().getSelectedItem() + "';")
+								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().getSelectedItem() + "';")
 						.get("prix") + " euros");
 				writeTotalInLabel();
 			}
 		});
 
-		graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().addActionListener(new ActionListener() {
+		graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				graphique.getTabAjoutOffre().getLabelPrixUnitaireRam().setText(db
+				graphique.getTabAjoutOffre().getLabelPrixUnitaireAppareilPhoto().setText(db
 						.getRowFromQuery("SELECT prix FROM ram WHERE reference='"
-								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().getSelectedItem() + "';")
+								+ (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().getSelectedItem() + "';")
 						.get("prix") + " euros");
 				writeTotalInLabel();
 			}
@@ -410,16 +410,16 @@ public class Controleur {
 				graphique.getTabAjoutReference().getTextFieldPrix().setEnabled(true);
 
 				// Desactive les autres champs
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique1().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique2().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceCpu1().setVisible(false);
-				graphique.getTabAjoutReference().getComboBoxAjoutReferenceCpu1().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().setVisible(false);
-				graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam1().setVisible(false);
-				graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam2().setVisible(false);
-				graphique.getTabAjoutReference().getComboBoxAjoutReferenceRam1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran2().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceProcesseur1().setVisible(false);
+				graphique.getTabAjoutReference().getComboBoxAjoutReferenceProcesseur1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().setVisible(false);
+				graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto1().setVisible(false);
+				graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto2().setVisible(false);
+				graphique.getTabAjoutReference().getComboBoxAjoutReferenceAppareilPhoto1().setVisible(false);
 
 				switch ((String) graphique.getTabAjoutReference().getComboBoxAjoutReference().getSelectedItem()) {
 				case "Carte Graphique":
@@ -429,8 +429,8 @@ public class Controleur {
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite1().setText("MHz");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite2().setText("Mo");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite3().setText("");
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique1().setVisible(true);
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique2().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran1().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran2().setVisible(true);
 					graphique.getTabbedPane().repaint();
 
 					break;
@@ -441,8 +441,8 @@ public class Controleur {
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite1().setText("GHz");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite2().setText("");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite3().setText("");
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceCpu1().setVisible(true);
-					graphique.getTabAjoutReference().getComboBoxAjoutReferenceCpu1().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceProcesseur1().setVisible(true);
+					graphique.getTabAjoutReference().getComboBoxAjoutReferenceProcesseur1().setVisible(true);
 					graphique.getTabbedPane().repaint();
 					break;
 				case "Disque Dur":
@@ -452,9 +452,9 @@ public class Controleur {
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite1().setText("Go");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite2().setText("");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite3().setText("RPM");
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().setVisible(true);
-					graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().setVisible(true);
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().setVisible(true);
+					graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().setVisible(true);
 					graphique.getTabbedPane().repaint();
 					break;
 				case "RAM":
@@ -464,9 +464,9 @@ public class Controleur {
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite1().setText("Go");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite2().setText("MHz");
 					graphique.getTabAjoutReference().getLabelAjoutReferenceUnite3().setText("");
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam1().setVisible(true);
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam2().setVisible(true);
-					graphique.getTabAjoutReference().getComboBoxAjoutReferenceRam1().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto1().setVisible(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto2().setVisible(true);
+					graphique.getTabAjoutReference().getComboBoxAjoutReferenceAppareilPhoto1().setVisible(true);
 					graphique.getTabbedPane().repaint();
 					break;
 				}
@@ -485,10 +485,10 @@ public class Controleur {
 				if (Pattern.matches("([0-9])+.?([0-9])* euros", graphique.getTabAjoutOffre().getLabelPrixTotal().getText())) {
 					Ordinateur ordinateur = new Ordinateur(
 							new CarteGraphique(db,
-									(String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().getSelectedItem()),
-							new Cpu(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().getSelectedItem()),
-							new DisqueDur(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().getSelectedItem()),
-							new Ram(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().getSelectedItem()));
+									(String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().getSelectedItem()),
+							new Cpu(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().getSelectedItem()),
+							new DisqueDur(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().getSelectedItem()),
+							new Ram(db, (String) graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().getSelectedItem()));
 
 					if (!db.isPresent(ordinateur)) {
 
@@ -501,10 +501,10 @@ public class Controleur {
 
 						// Ajout au tableau liste des offres
 						String sql = "SELECT * FROM ordinateur WHERE carte_graphique='"
-								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().getSelectedItem() + "' AND " + "cpu='"
-								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().getSelectedItem() + "' AND " + "disque_dur='"
-								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().getSelectedItem() + "' AND " + "ram='"
-								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().getSelectedItem() + "';";
+								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().getSelectedItem() + "' AND " + "cpu='"
+								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().getSelectedItem() + "' AND " + "disque_dur='"
+								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().getSelectedItem() + "' AND " + "ram='"
+								+ graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().getSelectedItem() + "';";
 
 						TreeMap<String, String> row = db.getRowFromQuery(sql);
 						String[] tableRow = new String[] { row.get("id"), row.get("carte_graphique"), row.get("cpu"),
@@ -538,75 +538,75 @@ public class Controleur {
 				switch ((String) graphique.getTabAjoutReference().getComboBoxAjoutReference().getSelectedItem()) {
 				case "Carte Graphique":
 					if (Pattern.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldPrix().getText())
-							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique1().getText())
-							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique2().getText())) {
+							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran1().getText())
+							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran2().getText())) {
 						ok = true;
 						composant = new CarteGraphique(graphique.getTabAjoutReference().getTextFieldReference().getText(),
 								Double.parseDouble(graphique.getTabAjoutReference().getTextFieldPrix().getText()),
-								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique1().getText()),
-								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceCarteGraphique2().getText()));
+								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran1().getText()),
+								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceEcran2().getText()));
 						table = "carte_graphique";
-						graphique.getTabListeOffre().getComboBoxModifCarteGraphique().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
-						graphique.getTabAjoutOffre().getComboBoxAjoutOffreCarteGraphique().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabListeOffre().getComboBoxModifEcran().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabAjoutOffre().getComboBoxAjoutOffreEcran().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
 					}
 					break;
 				case "CPU":
 					if (Pattern.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldPrix().getText()) && Pattern
-							.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldAjoutReferenceCpu1().getText())) {
+							.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldAjoutReferenceProcesseur1().getText())) {
 						ok = true;
 						composant = new Cpu(graphique.getTabAjoutReference().getTextFieldReference().getText(),
 								Double.parseDouble(graphique.getTabAjoutReference().getTextFieldPrix().getText()),
-								Double.parseDouble(graphique.getTabAjoutReference().getTextFieldAjoutReferenceCpu1().getText()),
-								(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceCpu1().getSelectedItem());
+								Double.parseDouble(graphique.getTabAjoutReference().getTextFieldAjoutReferenceProcesseur1().getText()),
+								(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceProcesseur1().getSelectedItem());
 						table = "cpu";
-						graphique.getTabListeOffre().getComboBoxModifCpu().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
-						graphique.getTabAjoutOffre().getComboBoxAjoutOffreCpu().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabListeOffre().getComboBoxModifProcesseur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabAjoutOffre().getComboBoxAjoutOffreProcesseur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
 					}
 					break;
 				case "Disque Dur":
 
 					table = "disque_dur";
 
-					if (graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().getSelectedItem().equals("SSD")) {
+					if (graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().getSelectedItem().equals("SSD")) {
 
 						if (Pattern.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldPrix().getText())
-								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().getText())) {
+								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().getText())) {
 							ok = true;
 							composant = new DisqueDur(graphique.getTabAjoutReference().getTextFieldReference().getText(),
 									Double.parseDouble(graphique.getTabAjoutReference().getTextFieldPrix().getText()),
-									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().getText()),
-									(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().getSelectedItem(), 0);
-							graphique.getTabListeOffre().getComboBoxModifDisqueDur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
-							graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().getText()),
+									(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().getSelectedItem(), 0);
+							graphique.getTabListeOffre().getComboBoxModifBatterie().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+							graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
 						}
 					} else {
 						if (Pattern.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldPrix().getText())
-								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().getText())
-								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().getText())) {
+								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().getText())
+								&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().getText())) {
 							ok = true;
 							composant = new DisqueDur(graphique.getTabAjoutReference().getTextFieldReference().getText(),
 									Double.parseDouble(graphique.getTabAjoutReference().getTextFieldPrix().getText()),
-									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur1().getText()),
-									(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().getSelectedItem(),
-									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().getText()));
-							graphique.getTabListeOffre().getComboBoxModifDisqueDur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
-							graphique.getTabAjoutOffre().getComboBoxAjoutOffreDisqueDur().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie1().getText()),
+									(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().getSelectedItem(),
+									Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().getText()));
+							graphique.getTabListeOffre().getComboBoxModifBatterie().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+							graphique.getTabAjoutOffre().getComboBoxAjoutOffreBatterie().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
 						}
 					}
 					break;
 				case "RAM":
 					if (Pattern.matches("([0-9])+.?([0-9]){0,2}", graphique.getTabAjoutReference().getTextFieldPrix().getText())
-							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam1().getText())
-							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam2().getText())) {
+							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto1().getText())
+							&& Pattern.matches("([0-9])+", graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto2().getText())) {
 						ok = true;
 						composant = new Ram(graphique.getTabAjoutReference().getTextFieldReference().getText(),
 								Double.parseDouble(graphique.getTabAjoutReference().getTextFieldPrix().getText()),
-								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam1().getText()),
-								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceRam2().getText()),
-								(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceRam1().getSelectedItem());
+								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto1().getText()),
+								Integer.parseInt(graphique.getTabAjoutReference().getTextFieldAjoutReferenceAppareilPhoto2().getText()),
+								(String) graphique.getTabAjoutReference().getComboBoxAjoutReferenceAppareilPhoto1().getSelectedItem());
 						table = "ram";
-						graphique.getTabListeOffre().getComboBoxModifRam().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
-						graphique.getTabAjoutOffre().getComboBoxAjoutOffreRam().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabListeOffre().getComboBoxModifAppareilPhoto().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
+						graphique.getTabAjoutOffre().getComboBoxAjoutOffreAppareilPhoto().addItem(graphique.getTabAjoutReference().getTextFieldReference().getText());
 					}
 					break;
 				}
@@ -623,12 +623,12 @@ public class Controleur {
 			}
 		});
 
-		graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().addActionListener(new ActionListener() {
+		graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (graphique.getTabAjoutReference().getComboBoxAjoutReferenceDisqueDur1().getSelectedItem().equals("SSD")) {
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().setEnabled(false);
+				if (graphique.getTabAjoutReference().getComboBoxAjoutReferenceBatterie1().getSelectedItem().equals("SSD")) {
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().setEnabled(false);
 				} else {
-					graphique.getTabAjoutReference().getTextFieldAjoutReferenceDisqueDur2().setEnabled(true);
+					graphique.getTabAjoutReference().getTextFieldAjoutReferenceBatterie2().setEnabled(true);
 				}
 			}
 		});
@@ -859,14 +859,14 @@ public class Controleur {
 		// Pour arrondir au centieme
 		java.text.DecimalFormat df = new java.text.DecimalFormat("0.##");
 
-		if (graphique.getTabAjoutOffre().getLabelPrixUnitaireCarteGraphique().getText() != "" && graphique.getTabAjoutOffre().getLabelPrixUnitaireCpu().getText() != ""
-				&& graphique.getTabAjoutOffre().getLabelPrixUnitaireDisqueDur().getText() != ""
-				&& graphique.getTabAjoutOffre().getLabelPrixUnitaireRam().getText() != "")
+		if (graphique.getTabAjoutOffre().getLabelPrixUnitaireEcran().getText() != "" && graphique.getTabAjoutOffre().getLabelPrixUnitaireProcesseur().getText() != ""
+				&& graphique.getTabAjoutOffre().getLabelPrixUnitaireBatterie().getText() != ""
+				&& graphique.getTabAjoutOffre().getLabelPrixUnitaireAppareilPhoto().getText() != "")
 			graphique.getTabAjoutOffre().getLabelPrixTotal().setText((df
-					.format(Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireCarteGraphique().getText().replace("euros", ""))
-							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireCpu().getText().replace("euros", ""))
-							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireDisqueDur().getText().replace("euros", ""))
-							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireRam().getText().replace("euros", "")))
+					.format(Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireEcran().getText().replace("euros", ""))
+							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireProcesseur().getText().replace("euros", ""))
+							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireBatterie().getText().replace("euros", ""))
+							+ Double.parseDouble(graphique.getTabAjoutOffre().getLabelPrixUnitaireAppareilPhoto().getText().replace("euros", "")))
 					+ " euros").replace(",", "."));
 	}
 	
