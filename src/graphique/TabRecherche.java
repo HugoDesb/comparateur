@@ -136,7 +136,7 @@ public class TabRecherche extends JPanel{
 		critereRecherche.add(labelRechercherTop, gbc_labelRechercherTop);
 
 		// Question 1
-		JLabel labelRecherche1 = new JLabel("Quelle serait l'utilisation principale de votre ordinateur ?");
+		JLabel labelRecherche1 = new JLabel("Mon smartphone doit me permettre : ");
 
 		labelRecherche1.setFont(f14);
 		GridBagConstraints gbc_labelRecherche1 = new GridBagConstraints();
@@ -153,13 +153,13 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher1.gridx = 2;
 		gbc_comboBoxRechercher1.gridy = 2;
 		critereRecherche.add(comboBoxRechercher1, gbc_comboBoxRechercher1);
-		comboBoxRechercher1.addItem("Basique : bureautique, internet, videos, musiques");
-		comboBoxRechercher1.addItem("Polyvalente : retouches photos, montages videos, applications pro");
-		comboBoxRechercher1.addItem("Exigeante : retouches photos, montages videos, calculs, rendu 3D");
+		comboBoxRechercher1.addItem("d'appeler, envoyer des mails et des messages");
+		comboBoxRechercher1.addItem("de filmer et/ou prendre des photos de bonne qualité");
+		comboBoxRechercher1.addItem("de jouer a mes jeux vidéos favoris");
 		comboBoxRechercher1.setFont(f14plain);
 
 		// Question 2
-		JLabel labelRecherche2 = new JLabel("Voudriez-vous jouer a des jeux videos ? Si oui, de quel type ?");
+		JLabel labelRecherche2 = new JLabel("Jouez-vous sur votre smartphone ? Si oui, de quel type ?");
 		labelRecherche2.setFont(f14);
 		GridBagConstraints gbc_labelRecherche2 = new GridBagConstraints();
 		gbc_labelRecherche2.anchor = GridBagConstraints.EAST;
@@ -176,13 +176,12 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher2.gridy = 3;
 		critereRecherche.add(comboBoxRechercher2, gbc_comboBoxRechercher2);
 		comboBoxRechercher2.addItem("Non, jamais");
-		comboBoxRechercher2.addItem("Oui, des jeux de gestion (Sims, Civilisation ...etc.");
-		comboBoxRechercher2.addItem("Oui, des jeux FPS Battlefield, Call of Duty, Quake ...etc.");
-		comboBoxRechercher2.addItem("Oui, tous les jeux de derniere generation");
+		comboBoxRechercher2.addItem("Oui, des jeux 2D");
+		comboBoxRechercher2.addItem("Oui, des jeux 3D");
 		comboBoxRechercher2.setFont(f14plain);
 
 		// Question 3
-		JLabel labelRecherche3 = new JLabel("Combien d'heures d'autonomie souhaiteriez vous ?");
+		JLabel labelRecherche3 = new JLabel("Voulez-vous beaucoup d'autonomie ? ");
 		labelRecherche3.setFont(f14);
 		GridBagConstraints gbc_labelRecherche3 = new GridBagConstraints();
 		gbc_labelRecherche3.anchor = GridBagConstraints.EAST;
@@ -199,13 +198,12 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher3.gridy = 4;
 		critereRecherche.add(comboBoxRechercher3, gbc_comboBoxRechercher3);
 		comboBoxRechercher3.addItem("Ca m'est egal");
-		comboBoxRechercher3.addItem("Environ 3 heures");
-		comboBoxRechercher3.addItem("Environ 5 heures");
-		comboBoxRechercher3.addItem("Environ 7 heures");
+		comboBoxRechercher3.addItem("1 jour me suffit");
+		comboBoxRechercher3.addItem("plus d'un jour");
 		comboBoxRechercher3.setFont(f14plain);
 
 		// Question 4
-		JLabel labelRecherche4 = new JLabel("Quelle media stockeriez-vous principalement sur votre ordinateur ?");
+		JLabel labelRecherche4 = new JLabel("Utiliserez-vous votre smartphone comme lecteur vidéo ?");
 		labelRecherche4.setFont(f14);
 		GridBagConstraints gbc_labelRecherche4 = new GridBagConstraints();
 		gbc_labelRecherche4.anchor = GridBagConstraints.EAST;
@@ -221,14 +219,14 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher4.gridx = 2;
 		gbc_comboBoxRechercher4.gridy = 5;
 		critereRecherche.add(comboBoxRechercher4, gbc_comboBoxRechercher4);
-		comboBoxRechercher4.addItem("Documents texte");
-		comboBoxRechercher4.addItem("Documents texte, musiques, images");
-		comboBoxRechercher4.addItem("Documents texte, musiques, images, films, jeux");
+		comboBoxRechercher4.addItem("Jamais");
+		comboBoxRechercher4.addItem("ça m'arrive");
+		comboBoxRechercher4.addItem("Souvent");
 		comboBoxRechercher4.setFont(f14plain);
 
 		// Question 5
 		JLabel labelRecherche5 = new JLabel(
-				"Seriez-vous prets a payer plus cher pour un demarrage rapide du systeme?");
+				"Seriez-vous prets a payer plus cher pour une meilleure qualité?");
 		labelRecherche5.setFont(f14);
 		GridBagConstraints gbc_labelRecherche5 = new GridBagConstraints();
 		gbc_labelRecherche5.insets = new Insets(0, 0, 5, 5);

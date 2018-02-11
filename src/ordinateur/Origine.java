@@ -1,12 +1,12 @@
 package ordinateur;
 
-public enum Resolution {
-	SD("sd", 6), HD("hd",5), FULL_HD("fhd",4), QUAD_HD("quadhd",3),ULTRA_HD("uhd",2), FOUR_K("4k",1);
+public enum Origine {
+	SD("sd", 6), HD("hd",5), FULL_HD("fullhd",4), QUAD_HD("quadhd",3),ULTRA_HD("ultrahd",2), FOUR_K("4k",1);
 	
 	private String s;
 	private int classement;
 	
-	Resolution(String s, int n) {	
+	Origine(String s, int n) {	
 		this.classement = n;
 		this.s = s;
 	}
@@ -31,3 +31,4 @@ public enum Resolution {
 		return classement;
 	}
 }
+

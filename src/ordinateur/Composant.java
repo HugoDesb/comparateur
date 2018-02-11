@@ -11,7 +11,10 @@ public class Composant {
      */
 	protected String reference;
 	
-	
+	/**
+	 * Origine d'un composant
+	 */
+	protected Origine origine;
 		
     /**
      * Constructeur par defaut d'un composant

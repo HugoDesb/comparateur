@@ -135,20 +135,16 @@ public class Controleur {
      */
 	public void fillTableOffres() {
 
-		Object[] tableHeader = new String[] { "ID", "Carte Graphique", "CPU", "Disque Dur", "RAM", "Prix (euros)",
-				"Reservation" };
+		Object[] tableHeader = new String[] { "ID", "Ecran", "Processeur", "Batterie", "Appareil Photo", "Prix"};
 		graphique.getTabListeOffre().getTableOffreModel().setColumnIdentifiers(tableHeader);
 
-		for (TreeMap<String, String> row : db.getRowsFrom("ordinateur")) {
+		for (TreeMap<String, String> row : db.getRowsFrom("smartphone")) {
 			
 			String[] tableRow;
-			if (Integer.parseInt(row.get("reserve")) == 1) {
-				tableRow = new String[] { row.get("id"), row.get("carte_graphique"), row.get("cpu"),
-						row.get("disque_dur"), row.get("ram"), row.get("prix"), "Reserve" };
-			} else {
-				tableRow = new String[] { row.get("id"), row.get("carte_graphique"), row.get("cpu"),
-						row.get("disque_dur"), row.get("ram"), row.get("prix"), "Disponible" };
-			}
+	
+			tableRow = new String[] { row.get("id"), row.get("ecran"), row.get("processeur"),
+					row.get("batterie"), row.get("appareil_photo"), row.get("prix"), row.get("marque")};
+
 			graphique.getTabListeOffre().getTableOffreModel().addRow(tableRow);
 		}
 
@@ -176,13 +172,13 @@ public class Controleur {
 			graphique.getTabListeOffre().getTableOffre().getColumnModel().getColumn(i).setCellRenderer(centrer);
 		}
 		
-		graphique.getTabListeOffre().getTableOffre().getColumn("Carte Graphique")
+		graphique.getTabListeOffre().getTableOffre().getColumn("Ecran")
 				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifCarteGraphique()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("CPU").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifCpu()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("Disque Dur")
+		graphique.getTabListeOffre().getTableOffre().getColumn("Processeur").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifCpu()));
+		graphique.getTabListeOffre().getTableOffre().getColumn("Batterie")
 				.setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifDisqueDur()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("RAM").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifRam()));
-		graphique.getTabListeOffre().getTableOffre().getColumn("Reservation").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifReserve()));
+		graphique.getTabListeOffre().getTableOffre().getColumn("Appareil Photo").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifRam()));
+		graphique.getTabListeOffre().getTableOffre().getColumn("Marque").setCellEditor(new DefaultCellEditor(graphique.getTabListeOffre().getComboBoxModifReserve()));
 
 		graphique.getTabListeOffre().getTableOffre().setRowHeight(20);
 		graphique.getTabListeOffre().getViewport().add(graphique.getTabListeOffre().getTableOffre());

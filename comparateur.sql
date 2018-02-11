@@ -23,283 +23,320 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `carte_graphique`
+-- Structure de la table `ecran`
 --
 
-CREATE TABLE IF NOT EXISTS `carte_graphique` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ecran` (
+  `id` int(11) NOT NULL,
   `reference` varchar(30) NOT NULL,
-  `prix` double NOT NULL,
-  `frequence` int(11) NOT NULL,
-  `memoire` int(11) NOT NULL
+  `type` varchar(10) NOT NULL,
+  `taille` double NOT NULL,
+  `resolution` varchar(10) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `carte_graphique`
+-- Contenu de la table `ecran`
 --
 
-INSERT INTO `carte_graphique` (`id`, `reference`, `prix`, `frequence`, `memoire`) VALUES
-(2, 'NVIDIA GeForce GTX 1080', 794.95, 1607, 8192),
-(3, 'NVIDIA GeForce 210', 39.95, 600, 1024),
-(4, 'NVIDIA GeForce GT 740', 89.95, 1072, 1024),
-(5, 'NVIDIA GeForce GTX 1050', 154.95, 1417, 2048),
-(6, 'NVIDIA GeForce GTX 960', 233.95, 1241, 2048);
+INSERT INTO `ecran` (`id`, `reference`, `type`, `taille`, `resolution`) VALUES
+(2, 'Amoled - 5.5p - sd', 'oled', 5.5, 'sd'),
+(3, 'LCD - 5.5p - hd', 'lcd', 5.5, 'hd'),
+(4, 'Amoled - 6p - fhd', 'oled', 6, 'fhd'),
+(5, 'LCD - 6p - fhd', 'lcd', 6, 'fhd');
+
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `cpu`
+-- Structure de la table `processeur`
 --
-
-CREATE TABLE IF NOT EXISTS `cpu` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `processeur` (
+  `id` int(11) NOT NULL,
   `reference` varchar(30) NOT NULL,
-  `prix` double NOT NULL,
+  `architecture` varchar(10) NOT NULL,
   `frequence` double NOT NULL,
-  `coeur` char(2) NOT NULL
+  `marque` varchar(10) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `cpu`
+-- Contenu de la table `processeur`
 --
 
-INSERT INTO `cpu` (`id`, `reference`, `prix`, `frequence`, `coeur`) VALUES
-(2, 'Intel Core i3-4150', 132.95, 3.5, 'I3'),
-(3, 'Intel Core i3-6300', 163.95, 3.8, 'I3'),
-(4, 'Intel Core i5-6500', 221.95, 3.2, 'I5'),
-(5, 'Intel Core i5-4690K', 269.95, 3.5, 'I5'),
-(6, 'Intel Core i7-6700K', 389.95, 4, 'I7');
+INSERT INTO `processeur` (`id`, `reference`, `architecture`, `frequence`, `marque`) VALUES
+(2, 'A11 Bionic', 'x64', 2.39, 'Apple'),
+(3, 'Cortex-A72', 'arm', 1.5, 'ARM'),
+(4, 'SnapDragon', 'arm', 2, 'Qualcomm');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `disque_dur`
+-- Structure de la table `batterie`
 --
 
-CREATE TABLE IF NOT EXISTS `disque_dur` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `batterie` (
+  `id` int(11) NOT NULL,
   `reference` varchar(50) NOT NULL,
-  `prix` double NOT NULL,
   `capacite` int(11) NOT NULL,
-  `type` varchar(30) NOT NULL,
-  `vitesse_rotation` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `disque_dur`
+-- Contenu de la table `batterie`
 --
 
-INSERT INTO `disque_dur` (`id`, `reference`, `prix`, `capacite`, `type`, `vitesse_rotation`) VALUES
-(2, 'Seagate Mobile HDD 1 To', 69.95, 1000, 'HDD', 5400),
-(3, 'Seagate Surveillance HDD Series 2 To', 99.95, 2000, 'HDD', 7200),
-(4, 'Crucial MX300 275 Go', 99.95, 275, 'SSD', 0),
-(5, 'Samsung SSD 850 PRO 512 Go', 269.95, 512, 'SSD', 0),
-(6, 'Seagate BarraCuda 500 Go', 51.15, 500, 'HDD', 5400);
+INSERT INTO `batterie` (`id`, `reference`, `capacite`) VALUES
+(2, 'Moyenne', 2716),
+(3, 'Grande', 4600),
+(4, 'Petite', 1500);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ordinateur`
+-- Structure de la table `appareil_photo`
 --
 
-CREATE TABLE IF NOT EXISTS `ordinateur` (
-`id` int(11) NOT NULL,
-  `carte_graphique` varchar(50) NOT NULL,
-  `cpu` varchar(50) NOT NULL,
-  `disque_dur` varchar(50) NOT NULL,
-  `ram` varchar(50) NOT NULL,
-  `prix` double NOT NULL,
-  `reserve` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `ordinateur`
---
-
-INSERT INTO `ordinateur` (`id`, `carte_graphique`, `cpu`, `disque_dur`, `ram`, `prix`, `reserve`) VALUES
-(1, 'NVIDIA GeForce GTX 1080', 'Intel Core i7-6700K', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 1546.35, 0),
-(2, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate BarraCuda 500 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 242.9, 0),
-(3, 'NVIDIA GeForce GTX 1080', 'Intel Core i3-4150', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 1030, 0),
-(4, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-4690K', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 1167, 0),
-(5, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 1119, 0),
-(6, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-6500', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 1149, 0),
-(7, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 1319, 0),
-(8, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 1348.1, 0),
-(9, 'NVIDIA GeForce GTX 1080', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 1378.35, 0),
-(10, 'NVIDIA GeForce GTX 1050', 'Intel Core i7-6700K', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 647, 0),
-(11, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-4690K', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 527, 0),
-(12, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 479, 0),
-(13, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 509, 0),
-(14, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Crucial MX300 275 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 509, 0),
-(15, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 679, 0),
-(16, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate BarraCuda 500 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 460.2, 0),
-(17, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate BarraCuda 500 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 462.3, 0),
-(18, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate BarraCuda 500 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 519.55, 0),
-(19, 'NVIDIA GeForce GTX 1050', 'Intel Core i5-6500', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 511.1, 0),
-(20, 'NVIDIA GeForce GTX 1050', 'Intel Core i3-6300', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 453.1, 0),
-(21, 'NVIDIA GeForce GTX 1050', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 423.1, 0),
-(22, 'NVIDIA GeForce GTX 1050', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 421, 0),
-(23, 'NVIDIA GeForce GT 740', 'Intel Core i3-4150', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 325, 0),
-(24, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 356, 0),
-(25, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 414, 0),
-(26, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 444, 0),
-(27, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Crucial MX300 275 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 444, 0),
-(28, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 614, 0),
-(29, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate BarraCuda 500 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 395.2, 0),
-(30, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 400.7, 0),
-(31, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 443.1, 0),
-(32, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 416.1, 0),
-(33, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 473.35, 0),
-(34, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Crucial MX300 275 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 473.1, 0),
-(35, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Crucial MX300 275 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 446.1, 0),
-(36, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Crucial MX300 275 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 503.35, 0),
-(37, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 275, 0),
-(38, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 261.7, 0),
-(39, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate Mobile HDD 1 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 304.1, 0),
-(40, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Crucial MX300 275 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 305, 0),
-(41, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Crucial MX300 275 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 291.7, 0),
-(42, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Crucial MX300 275 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 334.1, 0),
-(43, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 475, 0),
-(44, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 461.7, 0),
-(45, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Samsung SSD 850 PRO 512 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 504.1, 0),
-(46, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate BarraCuda 500 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 256.2, 0),
-(47, 'NVIDIA GeForce 210', 'Intel Core i3-4150', 'Seagate BarraCuda 500 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 285.3, 0),
-(48, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 306, 0),
-(49, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 292.7, 0),
-(50, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 335.1, 0),
-(51, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 336, 0),
-(52, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 322.7, 0),
-(53, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 365.1, 0),
-(54, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 506, 0),
-(55, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 492.7, 0),
-(56, 'NVIDIA GeForce 210', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 535.1, 0),
-(57, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 385.1, 0),
-(58, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 358.1, 0),
-(59, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 415.35, 0),
-(60, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 386, 0),
-(61, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Surveillance HDD Series 2 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 415.1, 0),
-(62, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 445.35, 0),
-(63, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 386, 0),
-(64, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 415.1, 0),
-(65, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 445.35, 0),
-(66, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 556, 0),
-(67, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 542.7, 0),
-(68, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 585.1, 0),
-(69, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 558.1, 0),
-(70, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate BarraCuda 500 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 366.3, 0),
-(71, 'NVIDIA GeForce GT 740', 'Intel Core i3-6300', 'Seagate BarraCuda 500 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 339.3, 0),
-(72, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 643.1, 0),
-(73, 'NVIDIA GeForce GT 740', 'Intel Core i5-6500', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 673.35, 0),
-(74, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 492, 0),
-(75, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 478.7, 0),
-(76, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Seagate Surveillance HDD Series 2 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 521.1, 0),
-(77, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 551.35, 0),
-(78, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Crucial MX300 275 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 478.7, 0),
-(79, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Crucial MX300 275 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 494.1, 0),
-(80, 'NVIDIA GeForce GT 740', 'Intel Core i5-4690K', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 648.7, 0),
-(81, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Mobile HDD 1 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 726, 0),
-(82, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Mobile HDD 1 To', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 755.1, 0),
-(83, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Mobile HDD 1 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 785.35, 0),
-(84, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 756, 0),
-(85, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 758.1, 0),
-(86, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Seagate Surveillance HDD Series 2 To', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 815.35, 0),
-(87, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Samsung SSD 850 PRO 512 Go', 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 926, 0),
-(88, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 928.1, 0),
-(89, 'NVIDIA GeForce GTX 960', 'Intel Core i7-6700K', 'Samsung SSD 850 PRO 512 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 985.35, 0),
-(90, 'NVIDIA GeForce GTX 960', 'Intel Core i5-4690K', 'Seagate BarraCuda 500 Go', 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 616.3, 0),
-(91, 'NVIDIA GeForce GTX 960', 'Intel Core i5-4690K', 'Seagate BarraCuda 500 Go', 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 646.55, 0),
-(92, 'NVIDIA GeForce GTX 960', 'Intel Core i5-4690K', 'Seagate Surveillance HDD Series 2 To', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 622.7, 0),
-(93, 'NVIDIA GeForce GTX 1080', 'Intel Core i3-6300', 'Crucial MX300 275 Go', 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 1077.7, 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `ram`
---
-
-CREATE TABLE IF NOT EXISTS `ram` (
-`id` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `appareil_photo` (
+  `id` int(11) NOT NULL,
   `reference` varchar(50) NOT NULL,
-  `prix` double NOT NULL,
-  `capacite` int(11) NOT NULL,
-  `frequence` int(11) NOT NULL,
-  `type` varchar(30) NOT NULL
+  `resolution` double NOT NULL,
+  `ouverture` double NOT NULL,
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `ram`
+-- Contenu de la table `appareil_photo`
 --
 
-INSERT INTO `ram` (`id`, `reference`, `prix`, `capacite`, `frequence`, `type`) VALUES
-(5, 'Corsair Value Select 4 Go DDR3 1600 MHz CL11', 32.15, 4, 1600, 'DDR3'),
-(6, 'Corsair Value Select 2 Go DDR3 1333 MHz CL9', 18.85, 2, 1333, 'DDR3'),
-(7, 'Kingston ValueRAM 8 Go DDR3L 1600 MHz CL11 DR X8', 61.25, 8, 1600, 'DDR3'),
-(8, 'HyperX Savage Noir 4 Go DDR4 2400 MHz CL12', 34.25, 4, 2400, 'DDR4'),
-(9, 'HyperX Savage Noir 8 Go DDR4 2800 MHz CL14', 91.5, 8, 2800, 'DDR4');
+INSERT INTO `appareil_photo` (`id`, `reference`, `resolution`, `ouverture`) VALUES
+(5, 'iPhone X', 12, 1.8),
+(6, 'Sony IMX318 ', 23, 2),
+(7, 'HTC', 20, 1.7);
+-- --------------------------------------------------------
 
 --
--- Index pour les tables exportées
+-- Structure de la table `smartphone`
+--
+
+CREATE TABLE IF NOT EXISTS `smartphone` (
+  `id` int(11) NOT NULL,
+  `ecran` varchar(50) NOT NULL,
+  `processeur` varchar(50) NOT NULL,
+  `batterie` varchar(50) NOT NULL,
+  `appareil_photo` varchar(50) NOT NULL,
+  `prix` double NOT NULL,
+  `marque` varchar(20) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+
+
+
+
+--
+-- Contenu de la table `smartphone`
+--
+(2, 'Amoled - 5.5p - sd', 'oled', 5.5, 'sd'),
+(3, 'LCD - 5.5p - hd', 'lcd', 5.5, 'hd'),
+(4, 'Amoled - 6p - fhd', 'oled', 6, 'fhd'),
+(5, 'LCD - 6p - fhd', 'lcd', 6, 'fhd');
+
+(2, 'A11 Bionic', 'x64', 2.39, 'Apple'),
+(3, 'Cortex-A72', 'arm', 1.5, 'ARM'),
+(4, 'SnapDragon 870', 'arm', 2, 'Qualcomm');
+
+(2, 'Moyenne', 2716),
+(3, 'Grande', 4600),
+(4, 'Petite', 1500);
+
+(5, 'iPhone X', 12, 1.8),
+(6, 'Sony IMX318 ', 23, 2),
+(7, 'HTC', 20, 1.7);
+
+INSERT INTO `smartphone` (`id`, `ecran`, `processeur`, `batterie`, `appareil_photo`, `prix`,marque) VALUES
+(1, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'iPhone X', 1160, 'A'),
+(2, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'Sony IMX318', 1119, 'B'),
+(3, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'HTC', 1030,'C'),
+(4, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Moyenne', 'iPhone X', 1160, 'A'),
+(5, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(6, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Moyenne', 'HTC', 1030,'C'),
+(7, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Grande', 'iPhone X', 1160, 'A'),
+(8, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Grande', 'Sony IMX318', 1119, 'B'),
+(9, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Grande', 'HTC', 1030,'C'),
+(10, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Petite', 'iPhone X', 1160, 'A'),
+(11, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Petite', 'Sony IMX318', 1119, 'B'),
+(12, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Petite', 'HTC', 1030,'C'),
+(13, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Moyenne', 'iPhone X', 1160, 'A'),
+(14, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(15, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Moyenne', 'HTC', 1030,'C'),
+(16, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Grande', 'iPhone X', 1160, 'A'),
+(17, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Grande', 'Sony IMX318', 1119, 'B'),
+(18, 'Amoled - 5.5p - sd', 'Cortex-A72', 'Grande', 'HTC', 1030,'C'),
+(19, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Petite', 'iPhone X', 1160, 'A'),
+(20, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Petite', 'Sony IMX318', 1119, 'B'),
+(21, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Petite', 'HTC', 1030,'C'),
+(22, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Moyenne', 'iPhone X', 1160, 'A'),
+(23, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(24, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Moyenne', 'HTC', 1030,'C'),
+(25, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Grande', 'iPhone X', 1160, 'A'),
+(26, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Grande', 'Sony IMX318', 1119, 'B'),
+(27, 'Amoled - 5.5p - sd', 'SnapDragon 870', 'Grande', 'HTC', 1030,'C'),
+
+(28, 'LCD - 5.5p - hd', 'A11 Bionic', 'Petite', 'iPhone X', 1160, 'A'),
+(29, 'LCD - 5.5p - hd', 'A11 Bionic', 'Petite', 'Sony IMX318', 1119, 'B'),
+(30, 'LCD - 5.5p - hd', 'A11 Bionic', 'Petite', 'HTC', 1030,'C'),
+(31, 'LCD - 5.5p - hd', 'A11 Bionic', 'Moyenne', 'iPhone X', 1160, 'A'),
+(32, 'LCD - 5.5p - hd', 'A11 Bionic', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(33, 'LCD - 5.5p - hd', 'A11 Bionic', 'Moyenne', 'HTC', 1030,'C'),
+(34, 'LCD - 5.5p - hd', 'A11 Bionic', 'Grande', 'iPhone X', 1160, 'A'),
+(35, 'LCD - 5.5p - hd', 'A11 Bionic', 'Grande', 'Sony IMX318', 1119, 'B'),
+(36, 'LCD - 5.5p - hd', 'A11 Bionic', 'Grande', 'HTC', 1030,'C'),
+(37, 'LCD - 5.5p - hd', 'Cortex-A72', 'Petite', 'iPhone X', 1160, 'A'),
+(38, 'LCD - 5.5p - hd', 'Cortex-A72', 'Petite', 'Sony IMX318', 1119, 'B'),
+(39, 'LCD - 5.5p - hd', 'Cortex-A72', 'Petite', 'HTC', 1030,'C'),
+(40, 'LCD - 5.5p - hd', 'Cortex-A72', 'Moyenne', 'iPhone X', 1160, 'A'),
+(41, 'LCD - 5.5p - hd', 'Cortex-A72', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(42, 'LCD - 5.5p - hd', 'Cortex-A72', 'Moyenne', 'HTC', 1030,'C'),
+(43, 'LCD - 5.5p - hd', 'Cortex-A72', 'Grande', 'iPhone X', 1160, 'A'),
+(44, 'LCD - 5.5p - hd', 'Cortex-A72', 'Grande', 'Sony IMX318', 1119, 'B'),
+(45, 'LCD - 5.5p - hd', 'Cortex-A72', 'Grande', 'HTC', 1030,'C'),
+(46, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Petite', 'iPhone X', 1160, 'A'),
+(47, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Petite', 'Sony IMX318', 1119, 'B'),
+(48, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Petite', 'HTC', 1030,'C'),
+(49, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Moyenne', 'iPhone X', 1160, 'A'),
+(50, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(51, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Moyenne', 'HTC', 1030,'C'),
+(52, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Grande', 'iPhone X', 1160, 'A'),
+(53, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Grande', 'Sony IMX318', 1119, 'B'),
+(54, 'LCD - 5.5p - hd', 'SnapDragon 870', 'Grande', 'HTC', 1030,'C'),
+
+(56, 'Amoled - 6p - fhd', 'A11 Bionic', 'Petite', 'iPhone X', 1160, 'A'),
+(57, 'Amoled - 6p - fhd', 'A11 Bionic', 'Petite', 'Sony IMX318', 1119, 'B'),
+(58, 'Amoled - 6p - fhd', 'A11 Bionic', 'Petite', 'HTC', 1030,'C'),
+(59, 'Amoled - 6p - fhd', 'A11 Bionic', 'Moyenne', 'iPhone X', 1160, 'A'),
+(60, 'Amoled - 6p - fhd', 'A11 Bionic', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(61, 'Amoled - 6p - fhd', 'A11 Bionic', 'Moyenne', 'HTC', 1030,'C'),
+(62, 'Amoled - 6p - fhd', 'A11 Bionic', 'Grande', 'iPhone X', 1160, 'A'),
+(63, 'Amoled - 6p - fhd', 'A11 Bionic', 'Grande', 'Sony IMX318', 1119, 'B'),
+(64, 'Amoled - 6p - fhd', 'A11 Bionic', 'Grande', 'HTC', 1030,'C'),
+(65, 'Amoled - 6p - fhd', 'Cortex-A72', 'Petite', 'iPhone X', 1160, 'A'),
+(66, 'Amoled - 6p - fhd', 'Cortex-A72', 'Petite', 'Sony IMX318', 1119, 'B'),
+(67, 'Amoled - 6p - fhd', 'Cortex-A72', 'Petite', 'HTC', 1030,'C'),
+(68, 'Amoled - 6p - fhd', 'Cortex-A72', 'Moyenne', 'iPhone X', 1160, 'A'),
+(69, 'Amoled - 6p - fhd', 'Cortex-A72', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(70, 'Amoled - 6p - fhd', 'Cortex-A72', 'Moyenne', 'HTC', 1030,'C'),
+(71, 'Amoled - 6p - fhd', 'Cortex-A72', 'Grande', 'iPhone X', 1160, 'A'),
+(72, 'Amoled - 6p - fhd', 'Cortex-A72', 'Grande', 'Sony IMX318', 1119, 'B'),
+(73, 'Amoled - 6p - fhd', 'Cortex-A72', 'Grande', 'HTC', 1030,'C'),
+(74, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Petite', 'iPhone X', 1160, 'A'),
+(75, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Petite', 'Sony IMX318', 1119, 'B'),
+(76, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Petite', 'HTC', 1030,'C'),
+(77, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'iPhone X', 1160, 'A'),
+(78, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(79, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'HTC', 1030,'C'),
+(80, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Grande', 'iPhone X', 1160, 'A'),
+(81, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Grande', 'Sony IMX318', 1119, 'B'),
+(82, 'Amoled - 6p - fhd', 'SnapDragon 870', 'Grande', 'HTC', 1030,'C'),
+
+(83, 'LCD - 6p - fhd', 'A11 Bionic', 'Petite', 'iPhone X', 1160, 'A'),
+(84, 'LCD - 6p - fhd', 'A11 Bionic', 'Petite', 'Sony IMX318', 1119, 'B'),
+(85, 'LCD - 6p - fhd', 'A11 Bionic', 'Petite', 'HTC', 1030,'C'),
+(86, 'LCD - 6p - fhd', 'A11 Bionic', 'Moyenne', 'iPhone X', 1160, 'A'),
+(87, 'LCD - 6p - fhd', 'A11 Bionic', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(88, 'LCD - 6p - fhd', 'A11 Bionic', 'Moyenne', 'HTC', 1030,'C'),
+(89, 'LCD - 6p - fhd', 'A11 Bionic', 'Grande', 'iPhone X', 1160, 'A'),
+(90, 'LCD - 6p - fhd', 'A11 Bionic', 'Grande', 'Sony IMX318', 1119, 'B'),
+(91, 'LCD - 6p - fhd', 'A11 Bionic', 'Grande', 'HTC', 1030,'C'),
+(92, 'LCD - 6p - fhd', 'Cortex-A72', 'Petite', 'iPhone X', 1160, 'A'),
+(93, 'LCD - 6p - fhd', 'Cortex-A72', 'Petite', 'Sony IMX318', 1119, 'B'),
+(94, 'LCD - 6p - fhd', 'Cortex-A72', 'Petite', 'HTC', 1030,'C'),
+(95, 'LCD - 6p - fhd', 'Cortex-A72', 'Moyenne', 'iPhone X', 1160, 'A'),
+(96, 'LCD - 6p - fhd', 'Cortex-A72', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(97, 'LCD - 6p - fhd', 'Cortex-A72', 'Moyenne', 'HTC', 1030,'C'),
+(98, 'LCD - 6p - fhd', 'Cortex-A72', 'Grande', 'iPhone X', 1160, 'A'),
+(99, 'LCD - 6p - fhd', 'Cortex-A72', 'Grande', 'Sony IMX318', 1119, 'B'),
+(100, 'LCD - 6p - fhd', 'Cortex-A72', 'Grande', 'HTC', 1030,'C'),
+(101, 'LCD - 6p - fhd', 'SnapDragon 870', 'Petite', 'iPhone X', 1160, 'A'),
+(102, 'LCD - 6p - fhd', 'SnapDragon 870', 'Petite', 'Sony IMX318', 1119, 'B'),
+(103, 'LCD - 6p - fhd', 'SnapDragon 870', 'Petite', 'HTC', 1030,'C'),
+(104, 'LCD - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'iPhone X', 1160, 'A'),
+(105, 'LCD - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'Sony IMX318', 1119, 'B'),
+(106, 'LCD - 6p - fhd', 'SnapDragon 870', 'Moyenne', 'HTC', 1030,'C'),
+(107, 'LCD - 6p - fhd', 'SnapDragon 870', 'Grande', 'iPhone X', 1160, 'A'),
+(108, 'LCD - 6p - fhd', 'SnapDragon 870', 'Grande', 'Sony IMX318', 1119, 'B'),
+(109, 'LCD - 6p - fhd', 'SnapDragon 870', 'Grande', 'HTC', 1030,'C'),
+
+-- --------------------------------------------------------
+
+
+
+--
+-- Index pour les tables exportees
 --
 
 --
--- Index pour la table `carte_graphique`
+-- Index pour la table `ecran`
 --
-ALTER TABLE `carte_graphique`
+ALTER TABLE `ecran`
  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `cpu`
+-- Index pour la table `processeur`
 --
-ALTER TABLE `cpu`
+ALTER TABLE `processeur`
  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `disque_dur`
+-- Index pour la table `batterie`
 --
-ALTER TABLE `disque_dur`
+ALTER TABLE `batterie`
  ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `ordinateur`
+-- Index pour la table `appareil_photo`
 --
-ALTER TABLE `ordinateur`
+ALTER TABLE `appareil_photo`
+ ADD PRIMARY KEY (`id`);
+ 
+--
+-- Index pour la table `smartphone`
+--
+ALTER TABLE `smartphone`
  ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `ram`
---
-ALTER TABLE `ram`
- ADD PRIMARY KEY (`id`);
+
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables exportees
 --
 
 --
--- AUTO_INCREMENT pour la table `carte_graphique`
+-- AUTO_INCREMENT pour la table `ecran`
 --
-ALTER TABLE `carte_graphique`
+ALTER TABLE `ecran`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT pour la table `cpu`
+-- AUTO_INCREMENT pour la table `processeur`
 --
-ALTER TABLE `cpu`
+ALTER TABLE `processeur`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT pour la table `disque_dur`
+-- AUTO_INCREMENT pour la table `batterie`
 --
-ALTER TABLE `disque_dur`
+ALTER TABLE `batterie`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT pour la table `ordinateur`
+-- AUTO_INCREMENT pour la table `appareil_photo`
 --
-ALTER TABLE `ordinateur`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
---
--- AUTO_INCREMENT pour la table `ram`
---
-ALTER TABLE `ram`
+ALTER TABLE `appareil_photo`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `smartphone`
+--
+ALTER TABLE `smartphone`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+
+
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
