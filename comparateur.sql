@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `smartphone` (
 (6, 'Sony IMX318 ', 23, 2),
 (7, 'HTC', 20, 1.7);
 
-INSERT INTO `smartphone` (`id`, `ecran`, `processeur`, `batterie`, `appareil_photo`, `prix`,marque) VALUES
+INSERT INTO `smartphone` (`id`, `ecran`, `processeur`, `batterie`, `appareil_photo`, `prix`, `marque`) VALUES
 (1, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'iPhone X', 1160, 'A'),
 (2, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'Sony IMX318', 1119, 'B'),
 (3, 'Amoled - 5.5p - sd', 'A11 Bionic', 'Petite', 'HTC', 1030,'C'),
