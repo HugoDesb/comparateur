@@ -20,42 +20,42 @@ public class TabAjoutOffre extends JPanel{
 	/**
 	 * Label qui affiche le prix de la carte graphique choisie
 	 */
-	private JLabel labelPrixUnitaireCarteGraphique;
+	private JLabel labelPrixUnitaireEcran;
 	
 	/**
 	 * Label qui affiche le prix du processeur choisi
 	 */
-	private JLabel labelPrixUnitaireCpu;
+	private JLabel labelPrixUnitaireProcesseur;
 	
 	/**
 	 * Label qui affiche le prix du disque dur choisi
 	 */
-	private JLabel labelPrixUnitaireDisqueDur;
+	private JLabel labelPrixUnitaireBatterie;
 	
 	/**
 	 * Label qui affiche le prix de la ram choisie
 	 */
-	private JLabel labelPrixUnitaireRam;
+	private JLabel labelPrixUnitaireAppareilPhoto;
 	
 	/**
 	 * Combobox contenant tous les disques durs disponibles
 	 */
-	private JComboBox<String> comboBoxAjoutOffreDisqueDur;
+	private JComboBox<String> comboBoxAjoutOffreBatterie;
 	
 	/**
 	 * Combobox contenant toutes les ram disponibles
 	 */
-	private JComboBox<String> comboBoxAjoutOffreRam;
+	private JComboBox<String> comboBoxAjoutOffreAppareilPhoto;
 	
 	/**
 	 * Combobox contenant toutes les cartes graphiques disponibles
 	 */
-	private JComboBox<String> comboBoxAjoutOffreCarteGraphique;
+	private JComboBox<String> comboBoxAjoutOffreEcran;
 	
 	/**
 	 *  Combobox contenant tous les processeurs disponibles
 	 */
-	private JComboBox<String> comboBoxAjoutOffreCpu;
+	private JComboBox<String> comboBoxAjoutOffreProcesseur;
 	
 	/**
 	 *  Bouton pour ajouter l'offre choisie
@@ -105,116 +105,116 @@ public class TabAjoutOffre extends JPanel{
 		this.add(labelPrixUnitaire, gbc_labelPrixUnitaire);
 
 		// Carte graphique
-		labelPrixUnitaireCarteGraphique = new JLabel("");
-		labelPrixUnitaireCarteGraphique.setFont(f14);
-		GridBagConstraints gbc_labelPrixUnitaireCarteGraphique = new GridBagConstraints();
-		gbc_labelPrixUnitaireCarteGraphique.insets = new Insets(0, 0, 5, 5);
-		gbc_labelPrixUnitaireCarteGraphique.gridx = 4;
-		gbc_labelPrixUnitaireCarteGraphique.gridy = 3;
-		this.add(labelPrixUnitaireCarteGraphique, gbc_labelPrixUnitaireCarteGraphique);
+		labelPrixUnitaireEcran = new JLabel("");
+		labelPrixUnitaireEcran.setFont(f14);
+		GridBagConstraints gbc_labelPrixUnitaireEcran = new GridBagConstraints();
+		gbc_labelPrixUnitaireEcran.insets = new Insets(0, 0, 5, 5);
+		gbc_labelPrixUnitaireEcran.gridx = 4;
+		gbc_labelPrixUnitaireEcran.gridy = 3;
+		this.add(labelPrixUnitaireEcran, gbc_labelPrixUnitaireEcran);
 
-		JLabel labelCarteGraphique = new JLabel("Carte Graphique :");
-		labelCarteGraphique.setFont(f14);
-		GridBagConstraints gbc_labelCarteGraphique = new GridBagConstraints();
-		gbc_labelCarteGraphique.insets = new Insets(0, 0, 5, 5);
-		gbc_labelCarteGraphique.anchor = GridBagConstraints.EAST;
-		gbc_labelCarteGraphique.gridx = 1;
-		gbc_labelCarteGraphique.gridy = 3;
-		this.add(labelCarteGraphique, gbc_labelCarteGraphique);
+		JLabel labelEcran = new JLabel("Ecran :");
+		labelEcran.setFont(f14);
+		GridBagConstraints gbc_labelEcran = new GridBagConstraints();
+		gbc_labelEcran.insets = new Insets(0, 0, 5, 5);
+		gbc_labelEcran.anchor = GridBagConstraints.EAST;
+		gbc_labelEcran.gridx = 1;
+		gbc_labelEcran.gridy = 3;
+		this.add(labelEcran, gbc_labelEcran);
 
-		comboBoxAjoutOffreCarteGraphique = new JComboBox<String>();
-		GridBagConstraints gbc_comboBoxAjoutOffreCarteGraphique = new GridBagConstraints();
-		gbc_comboBoxAjoutOffreCarteGraphique.fill = GridBagConstraints.HORIZONTAL;
-    	gbc_comboBoxAjoutOffreCarteGraphique.anchor = GridBagConstraints.NORTH;
-		gbc_comboBoxAjoutOffreCarteGraphique.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxAjoutOffreCarteGraphique.gridx = 2;
-		gbc_comboBoxAjoutOffreCarteGraphique.gridy = 3;
-		this.add(comboBoxAjoutOffreCarteGraphique, gbc_comboBoxAjoutOffreCarteGraphique);
-		comboBoxAjoutOffreCarteGraphique.setFont(f14plain);
+		comboBoxAjoutOffreEcran = new JComboBox<String>();
+		GridBagConstraints gbc_comboBoxAjoutOffreEcran = new GridBagConstraints();
+		gbc_comboBoxAjoutOffreEcran.fill = GridBagConstraints.HORIZONTAL;
+    	gbc_comboBoxAjoutOffreEcran.anchor = GridBagConstraints.NORTH;
+		gbc_comboBoxAjoutOffreEcran.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxAjoutOffreEcran.gridx = 2;
+		gbc_comboBoxAjoutOffreEcran.gridy = 3;
+		this.add(comboBoxAjoutOffreEcran, gbc_comboBoxAjoutOffreEcran);
+		comboBoxAjoutOffreEcran.setFont(f14plain);
 
 		// CPU
-		labelPrixUnitaireCpu = new JLabel("");
-		labelPrixUnitaireCpu.setFont(f14);
-		GridBagConstraints gbc_labelPrixUnitaireCpu = new GridBagConstraints();
-		gbc_labelPrixUnitaireCpu.insets = new Insets(0, 0, 5, 5);
-		gbc_labelPrixUnitaireCpu.gridx = 4;
-		gbc_labelPrixUnitaireCpu.gridy = 4;
-		this.add(labelPrixUnitaireCpu, gbc_labelPrixUnitaireCpu);
+		labelPrixUnitaireProcesseur = new JLabel("");
+		labelPrixUnitaireProcesseur.setFont(f14);
+		GridBagConstraints gbc_labelPrixUnitaireProcesseur = new GridBagConstraints();
+		gbc_labelPrixUnitaireProcesseur.insets = new Insets(0, 0, 5, 5);
+		gbc_labelPrixUnitaireProcesseur.gridx = 4;
+		gbc_labelPrixUnitaireProcesseur.gridy = 4;
+		this.add(labelPrixUnitaireProcesseur, gbc_labelPrixUnitaireProcesseur);
 
-		JLabel labelCpu = new JLabel("CPU :");
-		labelCpu.setFont(f14);
-		GridBagConstraints gbc_labelCpu = new GridBagConstraints();
-		gbc_labelCpu.insets = new Insets(0, 0, 5, 5);
-		gbc_labelCpu.anchor = GridBagConstraints.EAST;
-		gbc_labelCpu.gridx = 1;
-		gbc_labelCpu.gridy = 4;
-		this.add(labelCpu, gbc_labelCpu);
+		JLabel labelProcesseur = new JLabel("Processeur :");
+		labelProcesseur.setFont(f14);
+		GridBagConstraints gbc_labelProcesseur = new GridBagConstraints();
+		gbc_labelProcesseur.insets = new Insets(0, 0, 5, 5);
+		gbc_labelProcesseur.anchor = GridBagConstraints.EAST;
+		gbc_labelProcesseur.gridx = 1;
+		gbc_labelProcesseur.gridy = 4;
+		this.add(labelProcesseur, gbc_labelProcesseur);
 
-		comboBoxAjoutOffreCpu = new JComboBox<String>();
-		GridBagConstraints gbc_comboBoxAjoutOffreCpu = new GridBagConstraints();
-		gbc_comboBoxAjoutOffreCpu.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxAjoutOffreCpu.anchor = GridBagConstraints.NORTH;
-		gbc_comboBoxAjoutOffreCpu.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxAjoutOffreCpu.gridx = 2;
-		gbc_comboBoxAjoutOffreCpu.gridy = 4;
-		this.add(comboBoxAjoutOffreCpu, gbc_comboBoxAjoutOffreCpu);
-		comboBoxAjoutOffreCpu.setFont(f14plain);
+		comboBoxAjoutOffreProcesseur = new JComboBox<String>();
+		GridBagConstraints gbc_comboBoxAjoutOffreProcesseur = new GridBagConstraints();
+		gbc_comboBoxAjoutOffreProcesseur.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxAjoutOffreProcesseur.anchor = GridBagConstraints.NORTH;
+		gbc_comboBoxAjoutOffreProcesseur.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxAjoutOffreProcesseur.gridx = 2;
+		gbc_comboBoxAjoutOffreProcesseur.gridy = 4;
+		this.add(comboBoxAjoutOffreProcesseur, gbc_comboBoxAjoutOffreProcesseur);
+		comboBoxAjoutOffreProcesseur.setFont(f14plain);
 
 		// Disque dur
-		labelPrixUnitaireDisqueDur = new JLabel("");
-		labelPrixUnitaireDisqueDur.setFont(f14);
-		GridBagConstraints gbc_labelPrixUnitaireDisqueDur = new GridBagConstraints();
-		gbc_labelPrixUnitaireDisqueDur.insets = new Insets(0, 0, 5, 5);
-		gbc_labelPrixUnitaireDisqueDur.gridx = 4;
-		gbc_labelPrixUnitaireDisqueDur.gridy = 5;
-		this.add(labelPrixUnitaireDisqueDur, gbc_labelPrixUnitaireDisqueDur);
+		labelPrixUnitaireBatterie = new JLabel("");
+		labelPrixUnitaireBatterie.setFont(f14);
+		GridBagConstraints gbc_labelPrixUnitaireBatterie = new GridBagConstraints();
+		gbc_labelPrixUnitaireBatterie.insets = new Insets(0, 0, 5, 5);
+		gbc_labelPrixUnitaireBatterie.gridx = 4;
+		gbc_labelPrixUnitaireBatterie.gridy = 5;
+		this.add(labelPrixUnitaireBatterie, gbc_labelPrixUnitaireBatterie);
 
-		JLabel labelDisqueDur = new JLabel("Disque Dur :");
-		labelDisqueDur.setFont(f14);
-		GridBagConstraints gbc_labelDisqueDur = new GridBagConstraints();
-		gbc_labelDisqueDur.insets = new Insets(0, 0, 5, 5);
-		gbc_labelDisqueDur.anchor = GridBagConstraints.EAST;
-		gbc_labelDisqueDur.gridx = 1;
-		gbc_labelDisqueDur.gridy = 5;
-		this.add(labelDisqueDur, gbc_labelDisqueDur);
+		JLabel labelBatterie = new JLabel("Batterie :");
+		labelBatterie.setFont(f14);
+		GridBagConstraints gbc_labelBatterie = new GridBagConstraints();
+		gbc_labelBatterie.insets = new Insets(0, 0, 5, 5);
+		gbc_labelBatterie.anchor = GridBagConstraints.EAST;
+		gbc_labelBatterie.gridx = 1;
+		gbc_labelBatterie.gridy = 5;
+		this.add(labelBatterie, gbc_labelBatterie);
 
-		comboBoxAjoutOffreDisqueDur = new JComboBox<String>();
-		GridBagConstraints gbc_comboBoxAjoutOffreDisqueDur = new GridBagConstraints();
-		gbc_comboBoxAjoutOffreDisqueDur.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxAjoutOffreDisqueDur.anchor = GridBagConstraints.NORTH;
-		gbc_comboBoxAjoutOffreDisqueDur.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxAjoutOffreDisqueDur.gridx = 2;
-		gbc_comboBoxAjoutOffreDisqueDur.gridy = 5;
-		this.add(comboBoxAjoutOffreDisqueDur, gbc_comboBoxAjoutOffreDisqueDur);
-		comboBoxAjoutOffreDisqueDur.setFont(f14plain);
+		comboBoxAjoutOffreBatterie = new JComboBox<String>();
+		GridBagConstraints gbc_comboBoxAjoutOffreBatterie = new GridBagConstraints();
+		gbc_comboBoxAjoutOffreBatterie.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxAjoutOffreBatterie.anchor = GridBagConstraints.NORTH;
+		gbc_comboBoxAjoutOffreBatterie.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxAjoutOffreBatterie.gridx = 2;
+		gbc_comboBoxAjoutOffreBatterie.gridy = 5;
+		this.add(comboBoxAjoutOffreBatterie, gbc_comboBoxAjoutOffreBatterie);
+		comboBoxAjoutOffreBatterie.setFont(f14plain);
 
 		// RAM
-		labelPrixUnitaireRam = new JLabel("");
-		labelPrixUnitaireRam.setFont(f14);
-		GridBagConstraints gbc_labelPrixUnitaireRam = new GridBagConstraints();
-		gbc_labelPrixUnitaireRam.insets = new Insets(0, 0, 5, 5);
-		gbc_labelPrixUnitaireRam.gridx = 4;
-		gbc_labelPrixUnitaireRam.gridy = 7;
-		this.add(labelPrixUnitaireRam, gbc_labelPrixUnitaireRam);
+		labelPrixUnitaireAppareilPhoto = new JLabel("");
+		labelPrixUnitaireAppareilPhoto.setFont(f14);
+		GridBagConstraints gbc_labelPrixUnitaireAppareilPhoto = new GridBagConstraints();
+		gbc_labelPrixUnitaireAppareilPhoto.insets = new Insets(0, 0, 5, 5);
+		gbc_labelPrixUnitaireAppareilPhoto.gridx = 4;
+		gbc_labelPrixUnitaireAppareilPhoto.gridy = 7;
+		this.add(labelPrixUnitaireAppareilPhoto, gbc_labelPrixUnitaireAppareilPhoto);
 
-		JLabel labelRam = new JLabel("RAM :");
-		labelRam.setFont(f14);
-		GridBagConstraints gbc_labelRam = new GridBagConstraints();
-		gbc_labelRam.insets = new Insets(0, 0, 5, 5);
-		gbc_labelRam.anchor = GridBagConstraints.EAST;
-		gbc_labelRam.gridx = 1;
-		gbc_labelRam.gridy = 7;
-		this.add(labelRam, gbc_labelRam);
+		JLabel labelAppareilPhoto = new JLabel("Appareil Photo :");
+		labelAppareilPhoto.setFont(f14);
+		GridBagConstraints gbc_labelAppareilPhoto = new GridBagConstraints();
+		gbc_labelAppareilPhoto.insets = new Insets(0, 0, 5, 5);
+		gbc_labelAppareilPhoto.anchor = GridBagConstraints.EAST;
+		gbc_labelAppareilPhoto.gridx = 1;
+		gbc_labelAppareilPhoto.gridy = 7;
+		this.add(labelAppareilPhoto, gbc_labelAppareilPhoto);
 
-		comboBoxAjoutOffreRam = new JComboBox<String>();
-		GridBagConstraints gbc_comboBoxAjoutOffreRam = new GridBagConstraints();
-		gbc_comboBoxAjoutOffreRam.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBoxAjoutOffreRam.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBoxAjoutOffreRam.anchor = GridBagConstraints.NORTH;
-		gbc_comboBoxAjoutOffreRam.gridx = 2;
-		gbc_comboBoxAjoutOffreRam.gridy = 7;
-		this.add(comboBoxAjoutOffreRam, gbc_comboBoxAjoutOffreRam);
-		comboBoxAjoutOffreRam.setFont(f14plain);
+		comboBoxAjoutOffreAppareilPhoto = new JComboBox<String>();
+		GridBagConstraints gbc_comboBoxAjoutOffreAppareilPhoto = new GridBagConstraints();
+		gbc_comboBoxAjoutOffreAppareilPhoto.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBoxAjoutOffreAppareilPhoto.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBoxAjoutOffreAppareilPhoto.anchor = GridBagConstraints.NORTH;
+		gbc_comboBoxAjoutOffreAppareilPhoto.gridx = 2;
+		gbc_comboBoxAjoutOffreAppareilPhoto.gridy = 7;
+		this.add(comboBoxAjoutOffreAppareilPhoto, gbc_comboBoxAjoutOffreAppareilPhoto);
+		comboBoxAjoutOffreAppareilPhoto.setFont(f14plain);
 
 		labelPrixTotal = new JLabel("");
 		labelPrixTotal.setFont(f14);
@@ -255,64 +255,64 @@ public class TabAjoutOffre extends JPanel{
 	 * Renvoie le prix de la carte graphique choisie
 	 * @return Le prix de la carte graphique choisie
 	 */
-	public JLabel getLabelPrixUnitaireCarteGraphique() {
-		return labelPrixUnitaireCarteGraphique;
+	public JLabel getLabelPrixUnitaireEcran() {
+		return labelPrixUnitaireEcran;
 	}
 
 	/**
 	 * Renvoie le prix du processeur choisi
 	 * @return Le prix du processeur choisi
 	 */
-	public JLabel getLabelPrixUnitaireCpu() {
-		return labelPrixUnitaireCpu;
+	public JLabel getLabelPrixUnitaireProcesseur() {
+		return labelPrixUnitaireProcesseur;
 	}
 
 	/**
 	 * Renvoie le prix du disque dur choisi
 	 * @return Le prix du disque dur choisi
 	 */
-	public JLabel getLabelPrixUnitaireDisqueDur() {
-		return labelPrixUnitaireDisqueDur;
+	public JLabel getLabelPrixUnitaireBatterie() {
+		return labelPrixUnitaireBatterie;
 	}
 
 	/**
 	 * Renvoie le prix de la ram choisie
 	 * @return Le prix de la ram choisie
 	 */
-	public JLabel getLabelPrixUnitaireRam() {
-		return labelPrixUnitaireRam;
+	public JLabel getLabelPrixUnitaireAppareilPhoto() {
+		return labelPrixUnitaireAppareilPhoto;
 	}
 
 	/**
 	 * Renvoie la combobox associee aux disques durs choisi
 	 * @return La combobox associee aux disques durs choisi
 	 */
-	public JComboBox<String> getComboBoxAjoutOffreDisqueDur() {
-		return comboBoxAjoutOffreDisqueDur;
+	public JComboBox<String> getComboBoxAjoutOffreBatterie() {
+		return comboBoxAjoutOffreBatterie;
 	}
 
 	/**
 	 * Renvoie la combobox associee aux ram choisie
 	 * @return La combobox associee aux ram choisie
 	 */
-	public JComboBox<String> getComboBoxAjoutOffreRam() {
-		return comboBoxAjoutOffreRam;
+	public JComboBox<String> getComboBoxAjoutOffreAppareilPhoto() {
+		return comboBoxAjoutOffreAppareilPhoto;
 	}
 
 	/**
 	 * Renvoie la combobox associee aux cartes graphiques
 	 * @return La combobox associee aux cartes graphiques
 	 */
-	public JComboBox<String> getComboBoxAjoutOffreCarteGraphique() {
-		return comboBoxAjoutOffreCarteGraphique;
+	public JComboBox<String> getComboBoxAjoutOffreEcran() {
+		return comboBoxAjoutOffreEcran;
 	}
 
 	/**
 	 * Renvoie la combobox associee aux processeurs
 	 * @return La combobox associee aux processeurs
 	 */
-	public JComboBox<String> getComboBoxAjoutOffreCpu() {
-		return comboBoxAjoutOffreCpu;
+	public JComboBox<String> getComboBoxAjoutOffreProcesseur() {
+		return comboBoxAjoutOffreProcesseur;
 	}
 
     /**

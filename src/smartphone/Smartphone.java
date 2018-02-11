@@ -1,8 +1,10 @@
-package ordinateur;
+package smartphone;
 
 
 import java.util.Map;
 import java.util.TreeMap;
+
+import ordinateur.Composant;
 
 /**
  * Classe qui decrit un smartphone
@@ -45,8 +47,8 @@ public class Smartphone {
 	}
 	
 	/**
-     * Renvoie l'écran du smartphone
-     * @return L'objet écran du smartphone
+     * Renvoie l'ï¿½cran du smartphone
+     * @return L'objet ï¿½cran du smartphone
      */
 	public Ecran getEcran() {
 		return (Ecran)composants.get("ecran");

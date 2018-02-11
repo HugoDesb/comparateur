@@ -1,11 +1,14 @@
-package ordinateur;
+package smartphone;
 
 import java.util.Arrays;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 
+import ordinateur.Composant;
+import ordinateur.Db;
+
 /**
- * Classe qui décrit le composant appareil photo d'un smartphone
+ * Classe qui dï¿½crit le composant appareil photo d'un smartphone
  * @author Esteban GOBERT - esteban.gobert@etu.univ-amu.fr - & Hugo DESBIOLLES - hugo.desbiolles@etu.univ-amu.fr -
  */
 
@@ -74,7 +77,7 @@ public class AppareilPhoto extends Composant {
 	
 	/**
 	 * Renvoie une representation de l'objet ecran sous la forme "Appareil Photo : {reference, resolution, ouverture}"
-	 * @return Une chaine de caractere décrivant l'écran
+	 * @return Une chaine de caractere dï¿½crivant l'ï¿½cran
 	 */
 	@Override
 	public String toString(){

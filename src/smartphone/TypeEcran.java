@@ -1,4 +1,4 @@
-package ordinateur;
+package smartphone;
 
 public enum TypeEcran {
 	LCD("lcd",2), OLED("oled",1);

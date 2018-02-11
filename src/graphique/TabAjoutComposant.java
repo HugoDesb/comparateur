@@ -56,52 +56,52 @@ public class TabAjoutComposant extends JPanel{
 	/**
 	 * Zone de texte a remplir pour renseigner la frequence de la carte graphique
 	 */
-	private JTextField textFieldAjoutReferenceCarteGraphique1;
+	private JTextField textFieldAjoutReferenceEcran1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la memoire de la carte graphique
 	 */
-	private JTextField textFieldAjoutReferenceCarteGraphique2;
+	private JTextField textFieldAjoutReferenceEcran2;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la frequence du processeur
 	 */
-	private JTextField textFieldAjoutReferenceCpu1;
+	private JTextField textFieldAjoutReferenceProcesseur1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner le type de coeur du processeur
 	 */
-	private JComboBox<String> comboBoxAjoutReferenceCpu1;
+	private JComboBox<String> comboBoxAjoutReferenceProcesseur1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la capacite du disque dur
 	 */
-	private JTextField textFieldAjoutReferenceDisqueDur1;
+	private JTextField textFieldAjoutReferenceBatterie1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la vitesse de rotation du disque dur
 	 */
-	private JTextField textFieldAjoutReferenceDisqueDur2;
+	private JTextField textFieldAjoutReferenceBatterie2;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner le type du disque dur
 	 */
-	private JComboBox<String> comboBoxAjoutReferenceDisqueDur1;
+	private JComboBox<String> comboBoxAjoutReferenceBatterie1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la capacite de la ram
 	 */
-	private JTextField textFieldAjoutReferenceRam1;
+	private JTextField textFieldAjoutReferenceAppareilPhoto1;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner la frequence de la ram
 	 */
-	private JTextField textFieldAjoutReferenceRam2;
+	private JTextField textFieldAjoutReferenceAppareilPhoto2;
 	
 	/**
 	 * Zone de texte a remplir pour renseigner le type de ram
 	 */
-	private JComboBox<String> comboBoxAjoutReferenceRam1;
+	private JComboBox<String> comboBoxAjoutReferenceAppareilPhoto1;
 	
 	/**
 	 * Bouton permettant de valider le formulaire de création de composant
@@ -279,125 +279,125 @@ public class TabAjoutComposant extends JPanel{
 			this.add(labelAjoutReferenceUnite3, gbc_labelAjoutReferenceUnite3);
 
 			// Carte Graphique
-			textFieldAjoutReferenceCarteGraphique1 = new JTextField();
-			textFieldAjoutReferenceCarteGraphique1.setFont(f14plain);
+			textFieldAjoutReferenceEcran1 = new JTextField();
+			textFieldAjoutReferenceEcran1.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceCarteGraphique1 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceCarteGraphique1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceCarteGraphique1.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceCarteGraphique1.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceCarteGraphique1.gridx = 2;
 			gbc_textFieldAjoutReferenceCarteGraphique1.gridy = 5;
-			this.add(textFieldAjoutReferenceCarteGraphique1, gbc_textFieldAjoutReferenceCarteGraphique1);
-			textFieldAjoutReferenceCarteGraphique1.setVisible(false);
+			this.add(textFieldAjoutReferenceEcran1, gbc_textFieldAjoutReferenceCarteGraphique1);
+			textFieldAjoutReferenceEcran1.setVisible(false);
 
-			textFieldAjoutReferenceCarteGraphique2 = new JTextField();
-			textFieldAjoutReferenceCarteGraphique2.setFont(f14plain);
+			textFieldAjoutReferenceEcran2 = new JTextField();
+			textFieldAjoutReferenceEcran2.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceCarteGraphique2 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceCarteGraphique2.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceCarteGraphique2.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceCarteGraphique2.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceCarteGraphique2.gridx = 2;
 			gbc_textFieldAjoutReferenceCarteGraphique2.gridy = 6;
-			this.add(textFieldAjoutReferenceCarteGraphique2, gbc_textFieldAjoutReferenceCarteGraphique2);
-			textFieldAjoutReferenceCarteGraphique2.setVisible(false);
+			this.add(textFieldAjoutReferenceEcran2, gbc_textFieldAjoutReferenceCarteGraphique2);
+			textFieldAjoutReferenceEcran2.setVisible(false);
 
 			// Cpu
-			textFieldAjoutReferenceCpu1 = new JTextField();
-			textFieldAjoutReferenceCpu1.setFont(f14plain);
+			textFieldAjoutReferenceProcesseur1 = new JTextField();
+			textFieldAjoutReferenceProcesseur1.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceCpu1 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceCpu1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceCpu1.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceCpu1.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceCpu1.gridx = 2;
 			gbc_textFieldAjoutReferenceCpu1.gridy = 5;
-			this.add(textFieldAjoutReferenceCpu1, gbc_textFieldAjoutReferenceCpu1);
-			textFieldAjoutReferenceCpu1.setVisible(false);
+			this.add(textFieldAjoutReferenceProcesseur1, gbc_textFieldAjoutReferenceCpu1);
+			textFieldAjoutReferenceProcesseur1.setVisible(false);
 
-			comboBoxAjoutReferenceCpu1 = new JComboBox<String>();
+			comboBoxAjoutReferenceProcesseur1 = new JComboBox<String>();
 			GridBagConstraints gbc_comboBoxAjoutReferenceCpu1 = new GridBagConstraints();
 			gbc_comboBoxAjoutReferenceCpu1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBoxAjoutReferenceCpu1.anchor = GridBagConstraints.NORTH;
 			gbc_comboBoxAjoutReferenceCpu1.insets = new Insets(0, 0, 5, 5);
 			gbc_comboBoxAjoutReferenceCpu1.gridx = 2;
 			gbc_comboBoxAjoutReferenceCpu1.gridy = 6;
-			this.add(comboBoxAjoutReferenceCpu1, gbc_comboBoxAjoutReferenceCpu1);
-			comboBoxAjoutReferenceCpu1.addItem("I3");
-			comboBoxAjoutReferenceCpu1.addItem("I5");
-			comboBoxAjoutReferenceCpu1.addItem("I7");
-			comboBoxAjoutReferenceCpu1.setVisible(false);
-			comboBoxAjoutReferenceCpu1.setFont(f14plain);
+			this.add(comboBoxAjoutReferenceProcesseur1, gbc_comboBoxAjoutReferenceCpu1);
+			comboBoxAjoutReferenceProcesseur1.addItem("I3");
+			comboBoxAjoutReferenceProcesseur1.addItem("I5");
+			comboBoxAjoutReferenceProcesseur1.addItem("I7");
+			comboBoxAjoutReferenceProcesseur1.setVisible(false);
+			comboBoxAjoutReferenceProcesseur1.setFont(f14plain);
 
 			// Disque Dur
-			comboBoxAjoutReferenceDisqueDur1 = new JComboBox<String>();
+			comboBoxAjoutReferenceBatterie1 = new JComboBox<String>();
 			GridBagConstraints gbc_comboBoxAjoutReferenceDisqueDur1 = new GridBagConstraints();
 			gbc_comboBoxAjoutReferenceDisqueDur1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBoxAjoutReferenceDisqueDur1.anchor = GridBagConstraints.NORTH;
 			gbc_comboBoxAjoutReferenceDisqueDur1.insets = new Insets(0, 0, 5, 5);
 			gbc_comboBoxAjoutReferenceDisqueDur1.gridx = 2;
 			gbc_comboBoxAjoutReferenceDisqueDur1.gridy = 6;
-			this.add(comboBoxAjoutReferenceDisqueDur1, gbc_comboBoxAjoutReferenceDisqueDur1);
-			comboBoxAjoutReferenceDisqueDur1.addItem("HDD");
-		    comboBoxAjoutReferenceDisqueDur1.addItem("SSD");
-			comboBoxAjoutReferenceDisqueDur1.setVisible(false);
-			comboBoxAjoutReferenceDisqueDur1.setFont(f14plain);
+			this.add(comboBoxAjoutReferenceBatterie1, gbc_comboBoxAjoutReferenceDisqueDur1);
+			comboBoxAjoutReferenceBatterie1.addItem("HDD");
+		    comboBoxAjoutReferenceBatterie1.addItem("SSD");
+			comboBoxAjoutReferenceBatterie1.setVisible(false);
+			comboBoxAjoutReferenceBatterie1.setFont(f14plain);
 				
-			textFieldAjoutReferenceDisqueDur1 = new JTextField();
-			textFieldAjoutReferenceDisqueDur1.setFont(f14plain);
+			textFieldAjoutReferenceBatterie1 = new JTextField();
+			textFieldAjoutReferenceBatterie1.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceDisqueDur1 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceDisqueDur1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceDisqueDur1.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceDisqueDur1.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceDisqueDur1.gridx = 2;
 			gbc_textFieldAjoutReferenceDisqueDur1.gridy = 5;
-			this.add(textFieldAjoutReferenceDisqueDur1, gbc_textFieldAjoutReferenceDisqueDur1);
-			textFieldAjoutReferenceDisqueDur1.setVisible(false);
+			this.add(textFieldAjoutReferenceBatterie1, gbc_textFieldAjoutReferenceDisqueDur1);
+			textFieldAjoutReferenceBatterie1.setVisible(false);
 
-			textFieldAjoutReferenceDisqueDur2 = new JTextField();
-			textFieldAjoutReferenceDisqueDur2.setFont(f14plain);
+			textFieldAjoutReferenceBatterie2 = new JTextField();
+			textFieldAjoutReferenceBatterie2.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceDisqueDur2 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceDisqueDur2.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceDisqueDur2.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceDisqueDur2.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceDisqueDur2.gridx = 2;
 			gbc_textFieldAjoutReferenceDisqueDur2.gridy = 7;
-			this.add(textFieldAjoutReferenceDisqueDur2, gbc_textFieldAjoutReferenceDisqueDur2);
-			textFieldAjoutReferenceDisqueDur2.setVisible(false);
+			this.add(textFieldAjoutReferenceBatterie2, gbc_textFieldAjoutReferenceDisqueDur2);
+			textFieldAjoutReferenceBatterie2.setVisible(false);
 
 			// Ram
-			comboBoxAjoutReferenceRam1 = new JComboBox<String>();
+			comboBoxAjoutReferenceAppareilPhoto1 = new JComboBox<String>();
 			GridBagConstraints gbc_comboBoxAjoutReferenceRam1 = new GridBagConstraints();
 			gbc_comboBoxAjoutReferenceRam1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBoxAjoutReferenceRam1.anchor = GridBagConstraints.NORTH;
 			gbc_comboBoxAjoutReferenceRam1.insets = new Insets(0, 0, 5, 5);
 			gbc_comboBoxAjoutReferenceRam1.gridx = 2;
 			gbc_comboBoxAjoutReferenceRam1.gridy = 7;
-			this.add(comboBoxAjoutReferenceRam1, gbc_comboBoxAjoutReferenceRam1);
-			comboBoxAjoutReferenceRam1.addItem("DDR3");
-			comboBoxAjoutReferenceRam1.addItem("DDR4");
-			comboBoxAjoutReferenceRam1.setVisible(false);
-			comboBoxAjoutReferenceRam1.setFont(f14plain);
+			this.add(comboBoxAjoutReferenceAppareilPhoto1, gbc_comboBoxAjoutReferenceRam1);
+			comboBoxAjoutReferenceAppareilPhoto1.addItem("DDR3");
+			comboBoxAjoutReferenceAppareilPhoto1.addItem("DDR4");
+			comboBoxAjoutReferenceAppareilPhoto1.setVisible(false);
+			comboBoxAjoutReferenceAppareilPhoto1.setFont(f14plain);
 
-			textFieldAjoutReferenceRam1 = new JTextField();
-			textFieldAjoutReferenceRam1.setFont(f14plain);
+			textFieldAjoutReferenceAppareilPhoto1 = new JTextField();
+			textFieldAjoutReferenceAppareilPhoto1.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceRam1 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceRam1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceRam1.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceRam1.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceRam1.gridx = 2;
 			gbc_textFieldAjoutReferenceRam1.gridy = 5;
-			this.add(textFieldAjoutReferenceRam1, gbc_textFieldAjoutReferenceRam1);
-			textFieldAjoutReferenceRam1.setVisible(false);
+			this.add(textFieldAjoutReferenceAppareilPhoto1, gbc_textFieldAjoutReferenceRam1);
+			textFieldAjoutReferenceAppareilPhoto1.setVisible(false);
 
-			textFieldAjoutReferenceRam2 = new JTextField();
-			textFieldAjoutReferenceRam2.setFont(f14plain);
+			textFieldAjoutReferenceAppareilPhoto2 = new JTextField();
+			textFieldAjoutReferenceAppareilPhoto2.setFont(f14plain);
 			GridBagConstraints gbc_textFieldAjoutReferenceRam2 = new GridBagConstraints();
 			gbc_textFieldAjoutReferenceRam2.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textFieldAjoutReferenceRam2.anchor = GridBagConstraints.NORTH;
 			gbc_textFieldAjoutReferenceRam2.insets = new Insets(0, 0, 5, 5);
 			gbc_textFieldAjoutReferenceRam2.gridx = 2;
 			gbc_textFieldAjoutReferenceRam2.gridy = 6;
-			this.add(textFieldAjoutReferenceRam2, gbc_textFieldAjoutReferenceRam2);
-			textFieldAjoutReferenceRam2.setVisible(false);
+			this.add(textFieldAjoutReferenceAppareilPhoto2, gbc_textFieldAjoutReferenceRam2);
+			textFieldAjoutReferenceAppareilPhoto2.setVisible(false);
 				
 			btnInsererReference = new JButton("Ajouter la reference");
 			GridBagConstraints gbc_btnInsererReference = new GridBagConstraints();
@@ -477,80 +477,80 @@ public class TabAjoutComposant extends JPanel{
 	 * Getter de l'attribut textFieldAjoutReferenceCarteGraphique1
 	 * @return l'attribut textFieldAjoutReferenceCarteGraphique1
 	 */
-	public JTextField getTextFieldAjoutReferenceCarteGraphique1() {
-		return textFieldAjoutReferenceCarteGraphique1;
+	public JTextField getTextFieldAjoutReferenceEcran1() {
+		return textFieldAjoutReferenceEcran1;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceCarteGraphique2
 	 * @return l'attribut textFieldAjoutReferenceCarteGraphique2
 	 */
-	public JTextField getTextFieldAjoutReferenceCarteGraphique2() {
-		return textFieldAjoutReferenceCarteGraphique2;
+	public JTextField getTextFieldAjoutReferenceEcran2() {
+		return textFieldAjoutReferenceEcran2;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceCpu1
 	 * @return l'attribut textFieldAjoutReferenceCpu1
 	 */
-	public JTextField getTextFieldAjoutReferenceCpu1() {
-		return textFieldAjoutReferenceCpu1;
+	public JTextField getTextFieldAjoutReferenceProcesseur1() {
+		return textFieldAjoutReferenceProcesseur1;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxAjoutReferenceCpu1
 	 * @return l'attribut comboBoxAjoutReferenceCpu1
 	 */
-	public JComboBox<String> getComboBoxAjoutReferenceCpu1() {
-		return comboBoxAjoutReferenceCpu1;
+	public JComboBox<String> getComboBoxAjoutReferenceProcesseur1() {
+		return comboBoxAjoutReferenceProcesseur1;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceDisqueDur1
 	 * @return l'attribut textFieldAjoutReferenceDisqueDur1
 	 */
-	public JTextField getTextFieldAjoutReferenceDisqueDur1() {
-		return textFieldAjoutReferenceDisqueDur1;
+	public JTextField getTextFieldAjoutReferenceBatterie1() {
+		return textFieldAjoutReferenceBatterie1;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceDisqueDur2
 	 * @return l'attribut textFieldAjoutReferenceDisqueDur2
 	 */
-	public JTextField getTextFieldAjoutReferenceDisqueDur2() {
-		return textFieldAjoutReferenceDisqueDur2;
+	public JTextField getTextFieldAjoutReferenceBatterie2() {
+		return textFieldAjoutReferenceBatterie2;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxAjoutReferenceDisqueDur1
 	 * @return l'attribut comboBoxAjoutReferenceDisqueDur1
 	 */
-	public JComboBox<String> getComboBoxAjoutReferenceDisqueDur1() {
-		return comboBoxAjoutReferenceDisqueDur1;
+	public JComboBox<String> getComboBoxAjoutReferenceBatterie1() {
+		return comboBoxAjoutReferenceBatterie1;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceRam1
 	 * @return l'attribut textFieldAjoutReferenceRam1
 	 */
-	public JTextField getTextFieldAjoutReferenceRam1() {
-		return textFieldAjoutReferenceRam1;
+	public JTextField getTextFieldAjoutReferenceAppareilPhoto1() {
+		return textFieldAjoutReferenceAppareilPhoto1;
 	}
 
 	/**
 	 * Getter de l'attribut textFieldAjoutReferenceRam2
 	 * @return l'attribut textFieldAjoutReferenceRam2
 	 */
-	public JTextField getTextFieldAjoutReferenceRam2() {
-		return textFieldAjoutReferenceRam2;
+	public JTextField getTextFieldAjoutReferenceAppareilPhoto2() {
+		return textFieldAjoutReferenceAppareilPhoto2;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxAjoutReferenceRam1
 	 * @return l'attribut comboBoxAjoutReferenceRam1
 	 */
-	public JComboBox<String> getComboBoxAjoutReferenceRam1() {
-		return comboBoxAjoutReferenceRam1;
+	public JComboBox<String> getComboBoxAjoutReferenceAppareilPhoto1() {
+		return comboBoxAjoutReferenceAppareilPhoto1;
 	}
 
 	/**

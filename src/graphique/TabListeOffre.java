@@ -25,22 +25,22 @@ public class TabListeOffre extends JScrollPane{
 	/**
 	 * Combobox contenant les disques durs
 	 */
-	private JComboBox<String> comboBoxModifDisqueDur;
+	private JComboBox<String> comboBoxModifBatterie;
 	
 	/**
 	 * Combobox contenant les ram
 	 */
-	private JComboBox<String> comboBoxModifRam;
+	private JComboBox<String> comboBoxModifAppareilPhoto;
 	
 	/**
 	 * Combobox contenant les cartes graphiques
 	 */
-	private JComboBox<String> comboBoxModifCarteGraphique;
+	private JComboBox<String> comboBoxModifEcran;
 	
 	/**
 	 * Combobox contenant les processeurs
 	 */
-	private JComboBox<String> comboBoxModifCpu;
+	private JComboBox<String> comboBoxModifProcesseur;
 	
 	/**
 	 * Combobox permettant de reserver ou non une offre
@@ -54,10 +54,10 @@ public class TabListeOffre extends JScrollPane{
 		tableOffre = null;
 		tableOffreModel = new DefaultTableModel();
 		
-		comboBoxModifDisqueDur = new JComboBox<String>();
-		comboBoxModifRam = new JComboBox<String>();
-		comboBoxModifCarteGraphique = new JComboBox<String>();
-		comboBoxModifCpu = new JComboBox<String>();
+		comboBoxModifBatterie = new JComboBox<String>();
+		comboBoxModifAppareilPhoto = new JComboBox<String>();
+		comboBoxModifEcran = new JComboBox<String>();
+		comboBoxModifProcesseur = new JComboBox<String>();
 		comboBoxModifReserve = new JComboBox<String>();
 	}
 
@@ -89,32 +89,32 @@ public class TabListeOffre extends JScrollPane{
 	 * Getter de l'attribut comboBoxModifDisqueDur
 	 * @return l'attribut comboBoxModifDisqueDur
 	 */
-	public JComboBox<String> getComboBoxModifDisqueDur() {
-		return comboBoxModifDisqueDur;
+	public JComboBox<String> getComboBoxModifBatterie() {
+		return comboBoxModifBatterie;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxModifRam
 	 * @return l'attribut comboBoxModifRam
 	 */
-	public JComboBox<String> getComboBoxModifRam() {
-		return comboBoxModifRam;
+	public JComboBox<String> getComboBoxModifAppareilPhoto() {
+		return comboBoxModifAppareilPhoto;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxModifCarteGraphique
 	 * @return l'attribut comboBoxModifCarteGraphique
 	 */
-	public JComboBox<String> getComboBoxModifCarteGraphique() {
-		return comboBoxModifCarteGraphique;
+	public JComboBox<String> getComboBoxModifEcran() {
+		return comboBoxModifEcran;
 	}
 
 	/**
 	 * Getter de l'attribut comboBoxModifCpu
 	 * @return l'attribut comboBoxModifCpu
 	 */
-	public JComboBox<String> getComboBoxModifCpu() {
-		return comboBoxModifCpu;
+	public JComboBox<String> getComboBoxModifProcesseur() {
+		return comboBoxModifProcesseur;
 	}
 
 	/**

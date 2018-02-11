@@ -3,7 +3,7 @@ package systeme;
 import java.awt.EventQueue;
 
 import graphique.Graphique;
-import ordinateur.Db;
+import smartphone.Db;
 
 /**
  * Classe qui initialise le programme
