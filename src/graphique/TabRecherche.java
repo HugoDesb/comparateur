@@ -242,7 +242,7 @@ public class TabRecherche extends JPanel{
 		comboBoxRechercher5.setFont(f14plain);
 
 		// Question 6
-		JLabel labelRecherche6 = new JLabel("L'appareil photo doit il etre de bonne qualité");
+		JLabel labelRecherche6 = new JLabel("L'appareil photo doit il etre de bonne qualité ?");
 		labelRecherche6.setFont(f14);
 		GridBagConstraints gbc_labelRecherche6 = new GridBagConstraints();
 		gbc_labelRecherche6.anchor = GridBagConstraints.EAST;
@@ -258,8 +258,8 @@ public class TabRecherche extends JPanel{
 		gbc_comboBoxRechercher6.gridx = 2;
 		gbc_comboBoxRechercher6.gridy = 7;
 		critereRecherche.add(comboBoxRechercher6, gbc_comboBoxRechercher6);
-		comboBoxRechercher6.addItem("Avoir beaucoup d'autonomie (vous voyagez souvent)");
-		comboBoxRechercher6.addItem("Avoir une bonne performance");
+		comboBoxRechercher6.addItem("Pas spécialement");
+		comboBoxRechercher6.addItem("Oui, absolument");
 		comboBoxRechercher6.setFont(f14plain);
 
 		// Question 7

@@ -654,7 +654,7 @@ public class Controleur {
 				/*
 				 * getSelectedIndex donne le choix selectionne
 				 */
-				Evaluation eval = new Evaluation(db, graphique.getTabRecherche().getComboBoxRechercher1().getSelectedIndex(),
+				Comparateur eval = new Comparateur(db, graphique.getTabRecherche().getComboBoxRechercher1().getSelectedIndex(),
 						graphique.getTabRecherche().getComboBoxRechercher2().getSelectedIndex(),
 						graphique.getTabRecherche().getComboBoxRechercher3().getSelectedIndex(),
 						graphique.getTabRecherche().getComboBoxRechercher4().getSelectedIndex(),

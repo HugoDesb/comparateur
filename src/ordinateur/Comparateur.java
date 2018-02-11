@@ -3,10 +3,10 @@ package ordinateur;
 import java.util.TreeMap;
 
 /**
- * Classe qui evalue un ordinateur
- * @author Alexandre Monnot - alexandre.monnot@etu.univ-amu.fr - & Vincent Paoli - vincent.paoli.1@etu.univ-amu.fr -
+ * Classe qui evalue un smartphone
+ * @author Esteban GOBERT - esteban.gobert@etu.univ-amu.fr - & Hugo DESBIOLLES - hugo.desbiolles@etu.univ-amu.fr -
  */
-public class Evaluation {
+public class Comparateur {
 
 	/**
 	 * Constante definissant le nombre de resultats minimun a afficher
@@ -15,7 +15,7 @@ public class Evaluation {
 
 	/**
 	 * Constante utilisee pour determiner sur une echelle de 0 a 1 si
-	 * un ordinateur correspond aux criteres de l'utilisateur
+	 * un smartphone correspond aux criteres de l'utilisateur
 	 */
 	public final Double EXIGENCE = 0.65;
 
@@ -25,24 +25,24 @@ public class Evaluation {
 	private Db db;
 	
 	/**
-	 * Evaluation maximale d'une carte graphique
+	 * Evaluation maximale d'un ecran
 	 */
 	private double evalEcran = 1.0;
 		
 	/**
 	 * Evaluation maximale d'un processeur
 	 */
-	private double evalCpu = 1.0;
+	private double evalProcesseur = 1.0;
 		
 	/**
-	 * Evaluation maximale d'un disque dur
+	 * Evaluation maximale d'une batterie
 	 */
-	private double evalDisqueDur = 1.0;
+	private double evalBatterie = 1.0;
 		
 	/**
-	 * Evaluation maximale d'une ram
+	 * Evaluation maximale d'un appareil photo
 	 */
-	private double evalRam = 1.0;
+	private double evalAppareilPhoto = 1.0;
 		
 	/**
 	 * Reponse a la question 1
@@ -73,11 +73,7 @@ public class Evaluation {
 	 * Reponse a la question 6
 	 */
 	private int applications;
-			
-	/**
-	 * Reponse a la question 7
-	 */
-	private int preference;
+	
 
     		
 	/**
@@ -90,7 +86,7 @@ public class Evaluation {
 	 * @param q5 Reponse a la question 5
 	 * @param q6 Reponse a la question 6
 	 */
-	public Evaluation(Db db, int q1, int q2, int q3, int q4, int q5, int q6) {
+	public Comparateur(Db db, int q1, int q2, int q3, int q4, int q5, int q6) {
 	    
 		// recupere les reponses de chaque question
 		this.db = db;
@@ -103,9 +99,9 @@ public class Evaluation {
 		
 		//on recupere les eval max (pour normer)
 		this.evalEcran = evalMaxEcran();
-		this.evalCpu = evalMaxProcesseur();
-		this.evalDisqueDur = evalMaxBatterie();
-		this.evalRam = evalMaxAppareilPhoto();
+		this.evalProcesseur = evalMaxProcesseur();
+		this.evalBatterie = evalMaxBatterie();
+		this.evalAppareilPhoto = evalMaxAppareilPhoto();
 	}
     		
 	/**
@@ -349,7 +345,7 @@ public class Evaluation {
 		}
 		
 		res = (processeur.getFrequence() + coeur );
-		return res / evalCpu;
+		return res / evalProcesseur;
 	}
 	
     /**
@@ -377,7 +373,7 @@ public class Evaluation {
 				res = bat.getCapacite() + bat.getVitesseRotation() / 100;
 		}
 	
-		return  res / evalDisqueDur;
+		return  res / evalBatterie;
 	}
 
     /**
@@ -403,6 +399,6 @@ public class Evaluation {
 		}
 		
 		res = ap.getFrequence() / 500 + ap.getCapacite() + type;
-		return res / evalRam;
+		return res / evalAppareilPhoto;
 	}
 }
