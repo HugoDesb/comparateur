@@ -242,7 +242,7 @@ public class TabRecherche extends JPanel{
 		comboBoxRechercher5.setFont(f14plain);
 
 		// Question 6
-		JLabel labelRecherche6 = new JLabel("A choisir, que prefereriez-vous ?");
+		JLabel labelRecherche6 = new JLabel("L'appareil photo doit il etre de bonne qualité");
 		labelRecherche6.setFont(f14);
 		GridBagConstraints gbc_labelRecherche6 = new GridBagConstraints();
 		gbc_labelRecherche6.anchor = GridBagConstraints.EAST;

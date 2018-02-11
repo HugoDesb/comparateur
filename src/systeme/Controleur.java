@@ -644,8 +644,8 @@ public class Controleur {
 	
     /**
      * EventListeners de l'onglet "Rechercher"
-     * Appuie sur bouton provoque l'evaluation des ordinateurs selon le formulaire
-     * Affiche les meilleurs ordinateurs
+     * Appuie sur bouton provoque l'evaluation des smartphones selon le formulaire
+     * Affiche les meilleurs smartphones
      */
 	public void addEventListenerBoutonRechercher() {
 		graphique.getTabRecherche().getBtnRechercher().addActionListener(new ActionListener() {
@@ -697,24 +697,24 @@ public class Controleur {
 
 				// Creation du tableau de recherche
 				graphique.getTabRecherche().setTableRechercheModel(new DefaultTableModel());
-				Object[] tableHeader = new String[] { "ID", "Carte Graphique", "CPU", "Disque Dur", "RAM",
-						"Prix (euros)" };
+				Object[] tableHeader = new String[] { "ID", "Ecran", "Processeur", "Batterie", "Appareil Photo",
+						"Prix" };
 				graphique.getTabRecherche().getTableRechercheModel().setColumnIdentifiers(tableHeader);
 
-				int nbOrdi = 1;
+				int nbPhone = 1;
 				for (Map.Entry<Integer, Double> ordi : sortedMap) {
-					if (nbOrdi > eval.NB_RESULTATS && ordi.getValue() < eval.EXIGENCE)
+					if (nbPhone > eval.NB_RESULTATS && ordi.getValue() < eval.EXIGENCE)
 						break;
 
-					String sql = "SELECT * FROM ordinateur WHERE id=" + ordi.getKey() + ";";
+					String sql = "SELECT * FROM smartphone WHERE id=" + ordi.getKey() + ";";
 					TreeMap<String, String> row = db.getRowFromQuery(sql);
 
-					String[] tableRow = { row.get("id"), row.get("carte_graphique"), row.get("cpu"),
-							row.get("disque_dur"), row.get("ram"), row.get("prix") };
+					String[] tableRow = { row.get("id"), row.get("ecran"), row.get("processeur"),
+							row.get("batterie"), row.get("appareil_photo"), row.get("prix") };
 
 					graphique.getTabRecherche().getTableRechercheModel().addRow(tableRow);
 
-					nbOrdi++;
+					nbPhone++;
 				}
 
 				// propositions
@@ -752,57 +752,13 @@ public class Controleur {
 
 				graphique.repaint();
 
-				addChangeListenerReservation();
-
 				// On fait apparaitre le label qui explique
 				graphique.getTabRecherche().getLabelAideRecherche().setText(
-						"<html><b>Resultats trouves : " + graphique.getTabRecherche().getTableRecherche().getRowCount() + "</b><br>Voici les ordinateurs qui correspondent le plus a vos besoins. "
-								+ "Pour en reserver un, effectuez un clic droit sur celui-ci.</html>");
+						"<html><b>Resultats trouves : " + graphique.getTabRecherche().getTableRecherche().getRowCount() 
+						+ "</b><br>Voici les smartphones qui correspondent le plus a vos besoins. "
+								+ "</html>");
 			}
 		});
-
-	}
-	
-    /**
-     * EventListeners de l'onglet "Rechercher"
-     * Ajoute le menu contextuel avec possibilite de reserver
-     */
-	public void addChangeListenerReservation() {
-
-		JPopupMenu popupMenu = new JPopupMenu();
-		JMenuItem itemReserver = new JMenuItem("Reserver");
-		itemReserver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				// SI on selectionne une offre pour reserver
-				if (graphique.getTabRecherche().getTableRecherche().getSelectedRows().length == 1) {
-					int idCourant = Integer.parseInt(
-							(String) graphique.getTabRecherche().getTableRecherche().getValueAt(graphique.getTabRecherche().getTableRecherche().getSelectedRow(), 0));
-					String sql = "UPDATE ordinateur SET reserve=1 WHERE id=" + idCourant + ";";
-					db.updateRowFromQuery(sql);
-					if (admin == true) {
-						int i = 0;
-						while (Integer.parseInt((String) graphique.getTabListeOffre().getTableOffre().getValueAt(i, 0)) != idCourant) {
-							i++;
-						}
-						graphique.getTabListeOffre().getTableOffre().setValueAt("Reserve", i, 6);
-					}
-					JOptionPane.showMessageDialog(graphique, "Votre reservation a bien ete prise en compte !");
-
-					// Si on ne selectionne pas d'offre a reserver
-				} else if (graphique.getTabRecherche().getTableRecherche().getSelectedRows().length == 0) {
-					JOptionPane.showMessageDialog(graphique, "Vous n'avez rien s鬥ctionne !");
-
-					// SI on selectionne plusieurs offres
-				} else {
-					JOptionPane.showMessageDialog(graphique,
-							"Vous ne pouvez reserver qu'un ordinateur a la fois !");
-				}
-			}
-		});
-
-		popupMenu.add(itemReserver);
-		graphique.getTabRecherche().getTableRecherche().setComponentPopupMenu(popupMenu);
 
 	}
 	
